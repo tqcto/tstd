@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-unsigned char* convertDecimal(unsigned char* bufferP, int value, int base, unsigned int str_size) {
+unsigned char* convertDecimal(unsigned char* bufferP, unsigned int value, unsigned int base, unsigned int str_size) {
 
 	bufferP += str_size;
 	*--bufferP = '\0';
@@ -23,7 +23,7 @@ unsigned char* convertDecimal(unsigned char* bufferP, int value, int base, unsig
 
 }
 
-void printd(int value_in_decimal, int base) {
+void printd(unsigned int value_in_decimal, unsigned int base) {
 
 	unsigned char* buffer = (unsigned char*)malloc(sizeof(unsigned char) * (1 << 8));
 	unsigned char* converted = convertDecimal(buffer, value_in_decimal, base, 1 << 8);

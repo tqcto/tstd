@@ -22,7 +22,7 @@ extern "C" {
 	* @param str_size	桁の上限
 	* @return			基数変換後の文字列ポインタ（str_sizeの範囲で計算できなかった場合は-1を返す）
 	**/
-	DLL_EXPORT unsigned char* convertDecimal(unsigned char* bufferP, int value, int base, unsigned int str_size);
+	DLL_EXPORT unsigned char* convertDecimal(unsigned char* bufferP, unsigned int value, unsigned int base, unsigned int str_size);
 
 	/**
 	* @fn
@@ -30,7 +30,7 @@ extern "C" {
 	* @param value_in_decimal	表示したい10進数
 	* @param base				表示したい基数
 	**/
-	DLL_EXPORT void printd(int value_in_decimal, int base);
+	DLL_EXPORT void printd(unsigned int value_in_decimal, unsigned int base);
 
 #ifdef __cplusplus
 }
