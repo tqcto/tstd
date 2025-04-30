@@ -6,8 +6,14 @@
 #define DLL_EXPORT	__declspec(dllexport)
 #endif
 
-#define ASCII_0	0x30	// 0x30はASCIIコードで'0'に対応する
-#define ASCII_A	0x40
+/**
+* @def
+* @brief			convertDecimal関数で基数変換した数値の桁数を計算
+* @param bufferP	convertDecimalに渡した第1引数
+* @param convertedP	convertDecimalの戻り値
+* @param str_size	convertDecimalに渡した第4引数
+**/
+#define lengthInConvertDecimal(bufferP, convertedP, str_size)	str_size - 1 - ( convertedP - bufferP )
 
 #ifdef __cplusplus
 extern "C" {
