@@ -1,41 +1,41 @@
 #include "tstd.h"
 
-int convertDecimal(unsigned char* convertedP, int d, int p, int buffer) {
+#include <stdio.h>
+#include <stdlib.h>
 
-	for (int i = 0; i < buffer; i++) {
+unsigned char* convertDecimal(unsigned char* bufferP, int value, int base, unsigned int str_size) {
 
-		unsigned char tmp = ASCII_0 + d % p;
-		*(convertedP + sizeof(unsigned char) * i) = tmp >= 0x3A ? ASCII_A + tmp - 0b111001 : tmp;
+	bufferP += str_size;
+	*--bufferP = '\0';
 
-		d /= p;
+	for (int i = 0; i < str_size; i++) {
 
-		if (d == 0)	return i + 1;
+		unsigned char digit = (unsigned char)(value % base);
+		*--bufferP = (digit < 10 ? '0' : 'A' - 10) + digit;
+
+		value /= base;
+
+		if (value == 0)	return bufferP;
 
 	}
 
-	return -1;
+	return NULL;
 
 }
 
-/*
-void printd(int d, int p) {
+void printd(int value_in_decimal, int base) {
 
-	unsigned char* converted = (unsigned char*)malloc(sizeof(unsigned char) * (1 << 8));
-	int buf = convertDecimal(converted, d, p, 1 << 8);
-	if (buf == -1) {
+	unsigned char* buffer = (unsigned char*)malloc(sizeof(unsigned char) * (1 << 8));
+	unsigned char* converted = convertDecimal(buffer, value_in_decimal, base, 1 << 8);
+	if (converted == NULL) {
 
 		printf("printd: couldn't calculate order.\n");
 		return;
 
 	}
 
-	for (int i = 0; i < buf; i++) {
+	printf("%s\n", converted);
 
-		printf("%c", converted[buf - 1 - i]);
-
-	}
-
-	free(converted);
+	free(buffer);
 
 }
-*/
