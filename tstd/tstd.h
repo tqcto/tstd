@@ -28,7 +28,17 @@ extern "C" {
 	* @param str_size	桁の上限
 	* @return			基数変換後の文字列ポインタ（str_sizeの範囲で計算できなかった場合は-1を返す）
 	**/
-	DLL_EXPORT unsigned char* convertDecimal(unsigned char* bufferP, unsigned int value, unsigned int base, unsigned int str_size);
+	DLL_EXPORT unsigned char* convert2digit(unsigned char* bufferP, unsigned int value, unsigned int base, unsigned int str_size);
+
+	/**
+	* @fn
+	* @brief			p進数を10進数に基数変換
+	* @param digitP		p進数の文字列の先頭アドレス
+	* @param str_size	p進数の桁数
+	* @param base		変換前の基数
+	* @return			変換後の10進数
+	**/
+	DLL_EXPORT unsigned int convert2decimal(unsigned char* digitP, unsigned int str_size, unsigned int base);
 
 	/**
 	* @fn
