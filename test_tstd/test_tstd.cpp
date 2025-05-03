@@ -15,7 +15,7 @@ int main(void) {
 	unsigned char* converted = convert2digit(buffer, value_in_decimal, base, str_size);
 	if (converted == NULL) return -1;
 
-	printf("string:%s, length:%d\n", converted, lengthInConvertDecimal(buffer, converted, str_size));
+	printf("string:%s, length:%d\n", converted, length_in_convert2digit(buffer, converted, str_size));
 	*/
 
 	unsigned char*	digit		= (unsigned char*)"AA3F";
