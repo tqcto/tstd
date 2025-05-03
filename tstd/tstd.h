@@ -3,17 +3,21 @@
 #define _TSTD_H_
 
 #ifndef DLL_EXPORT
+#ifdef _DLL
 #define DLL_EXPORT	__declspec(dllexport)
+#else
+#define DLL_EXPORT
+#endif
 #endif
 
 /**
 * @def
-* @brief			convertDecimalŠÖ”‚ÅŠî”•ÏŠ·‚µ‚½”’l‚ÌŒ…”‚ğŒvZ
-* @param bufferP	convertDecimal‚É“n‚µ‚½‘æ1ˆø”
-* @param convertedP	convertDecimal‚Ì–ß‚è’l
-* @param str_size	convertDecimal‚É“n‚µ‚½‘æ4ˆø”
+* @brief			convert2digitŠÖ”‚ÅŠî”•ÏŠ·‚µ‚½”’l‚ÌŒ…”‚ğŒvZ
+* @param bufferP	convert2digit‚É“n‚µ‚½‘æ1ˆø”
+* @param convertedP	convert2digit‚Ì–ß‚è’l
+* @param str_size	convert2digit‚É“n‚µ‚½‘æ4ˆø”
 **/
-#define lengthInConvertDecimal(bufferP, convertedP, str_size)	str_size - 1 - ( convertedP - bufferP )
+#define length_in_convert2digit(bufferP, convertedP, str_size)	str_size - 1 - ( convertedP - bufferP )
 
 #ifdef __cplusplus
 extern "C" {
