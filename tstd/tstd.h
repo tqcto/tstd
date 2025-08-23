@@ -6,7 +6,8 @@
 
 #ifdef __cplusplus
 
-#include "memory/memoryHandler.h"
+#include "memory/memoryHandler.hpp"
+#include "files/fileSuite.hpp"
 
 extern "C" {
 #endif

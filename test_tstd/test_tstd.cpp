@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void testPrintb() {
+void test_Printb() {
 
 	/*
 	unsigned int value_in_decimal	= 300;
@@ -38,9 +38,26 @@ void test_memoryHandler() {
 
 }
 
+void tset_fileSuite() {
+
+	size_t size = 1 << 8;
+
+	memoryHandler<unsigned char> memHandle;
+	unsigned char* data = memHandle.allocate(size);
+
+	for (int i = 0; i < size; i++) {
+		data[i] = i;
+	}
+
+	fileSuite file("test.tmp", fileSuiteOpeningMode::WRITE);
+	file.write(data, sizeof(unsigned char), size);
+	file.close();
+
+}
+
 int main(void) {
 
-	testPrintb();
+	tset_fileSuite();
 
 	return 0;
 

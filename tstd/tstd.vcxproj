@@ -36,12 +36,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base\base.h" />
-    <ClInclude Include="memory\memoryHandler.h" />
+    <ClInclude Include="files\fileSuite.hpp" />
+    <ClInclude Include="memory\memoryHandler.hpp" />
     <ClInclude Include="tstd.h" />
     <ClInclude Include="tstd_definition.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\base.c" />
+    <ClCompile Include="files\fileSuite.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

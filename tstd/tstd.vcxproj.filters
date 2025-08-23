@@ -11,20 +11,29 @@
     <Filter Include="base">
       <UniqueIdentifier>{dde35114-9e91-4dbc-ba2b-b62954e1e651}</UniqueIdentifier>
     </Filter>
+    <Filter Include="files">
+      <UniqueIdentifier>{2d9f6aea-d348-4b1c-b060-59ba755bb211}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tstd_definition.h" />
-    <ClInclude Include="memory\memoryHandler.h">
+    <ClInclude Include="memory\memoryHandler.hpp">
       <Filter>memory</Filter>
     </ClInclude>
     <ClInclude Include="tstd.h" />
     <ClInclude Include="base\base.h">
       <Filter>base</Filter>
     </ClInclude>
+    <ClInclude Include="files\fileSuite.hpp">
+      <Filter>files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\base.c">
       <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="files\fileSuite.cpp">
+      <Filter>files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
