@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _TSTD_DEBUG_H_
-#define _TSTD_DEBUG_H_
+#ifndef _TSTD_MEASURE_HPP_
+#define _TSTD_MEASURE_HPP_
 
 #include <time.h>
 #include <stdarg.h>
