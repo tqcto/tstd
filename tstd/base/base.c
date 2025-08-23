@@ -1,4 +1,4 @@
-#include "tstd.h"
+#include "base.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,11 +31,11 @@ unsigned int convert2decimal(unsigned char* digitP, unsigned int str_size, unsig
 	for (int i = 0; i < str_size; i++) {
 
 		unsigned char tmp = *(digitP + sizeof(unsigned char) * i);
-		int char2int = (tmp >= 'A' ? 10 - 'A' : - '0') + tmp;
+		int char2int = (tmp >= 'A' ? 10 - 'A' : -'0') + tmp;
 		result += pow(base, str_size - 1 - i) * char2int;
 
 	}
-	
+
 	return result;
 
 }

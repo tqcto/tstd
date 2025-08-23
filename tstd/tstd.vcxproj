@@ -35,10 +35,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="base\base.h" />
+    <ClInclude Include="memory\memoryHandler.h" />
     <ClInclude Include="tstd.h" />
+    <ClInclude Include="tstd_definition.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="tstd.c" />
+    <ClCompile Include="base\base.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -264,7 +267,8 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(ProjectDir)tstd.h $(SolutionDir)build\include\tstd.h</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='libDebug|x64'">
@@ -284,7 +288,8 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(ProjectDir)tstd.h $(SolutionDir)build\include\tstd.h</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='dllRelease|x64'">
@@ -307,7 +312,8 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(ProjectDir)tstd.h $(SolutionDir)build\include\tstd.h</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='libRelease|x64'">
@@ -331,7 +337,8 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(ProjectDir)tstd.h $(SolutionDir)build\include\tstd.h</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,9 +1,10 @@
-﻿#include "tstd.h"
+﻿#define _USE_TSTD_DEBUG_MACROS // use debug macros for tstd
+#include "tstd.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
+void testPrintb() {
 
 	/*
 	unsigned int value_in_decimal	= 300;
@@ -18,9 +19,28 @@ int main(void) {
 	printf("string:%s, length:%d\n", converted, length_in_convert2digit(buffer, converted, str_size));
 	*/
 
-	unsigned char*	digit		= (unsigned char*)"AA3F";
-	unsigned int	str_size	= 4;
+	unsigned char* digit = (unsigned char*)"AA3F";
+	unsigned int	str_size = 4;
 	printf("0x%s -> %d\n", digit, convert2decimal(digit, str_size, 16));
+
+}
+
+void test_memoryHandler() {
+
+	memoryHandler<int> handle;
+	int* dataP = handle.allocate();
+
+	DEBUG_LOG("%d\n", *dataP);
+
+	*dataP = 0;
+
+	DEBUG_LOG("%d\n", *dataP);
+
+}
+
+int main(void) {
+
+	testPrintb();
 
 	return 0;
 
