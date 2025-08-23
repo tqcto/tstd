@@ -3,7 +3,6 @@
 #define _TSTD_MEASURE_HPP_
 
 #include <time.h>
-#include <stdarg.h>
 
 #include <utility>		// std::forward
 
