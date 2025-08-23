@@ -58,20 +58,6 @@ void tset_fileSuite() {
 
 }
 
-template<typename T> void test(T arg, ...) {
-
-	va_list args;
-	va_start(args, arg);
-
-	// show first
-	printf("%d\n", arg);
-
-	while (true) {
-
-	}
-
-}
-
 int main(void) {
 
 	measureCPU measure;

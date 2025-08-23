@@ -5,7 +5,6 @@
 #include <time.h>
 #include <stdarg.h>
 
-#include <functional>
 #include <utility>		// std::forward
 
 // CPU時間で処理時間の計測を行うクラス
@@ -137,6 +136,32 @@ public:
 	inline double getTime() const {
 
 		return (double)(this->end_time - this->start_time);
+
+	}
+
+	/*
+	* @fn
+	* @brief		与えられた関数の平均実行時間を計測
+	* @param func	計測する関数
+	* @param args	関数の引数リスト
+	* @param count	計測回数
+	* @return		平均実行時間
+	*/
+	template<typename Func, typename ... Args> double measure(Func func, Args ... args, int count) {
+
+		double sum = 0.0;
+
+		for (int i = 0; i < count; i++) {
+
+			this->start();
+
+			std::invoke(std::forward<Func>(func), std::forward<Args>(args)...);
+
+			sum += this->end();
+
+		}
+
+		return sum / (double)(count);
 
 	}
 
