@@ -49,7 +49,7 @@ void fileSuite::read(void* dataP, size_t elemSize, size_t elemCount) {
 
 }
 
-void fileSuite::write(void* dataP, size_t elemSize, size_t elemCount) {
+void fileSuite::write(const void* dataP, size_t elemSize, size_t elemCount) {
 
 	fwrite(dataP, elemSize, elemCount, this->fp);
 

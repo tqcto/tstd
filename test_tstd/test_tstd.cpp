@@ -3,6 +3,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
+
+#include <Windows.h>
 
 void test_Printb() {
 
@@ -55,9 +58,33 @@ void tset_fileSuite() {
 
 }
 
+template<typename T> void test(T arg, ...) {
+
+	va_list args;
+	va_start(args, arg);
+
+	// show first
+	printf("%d\n", arg);
+
+	while (true) {
+
+	}
+
+}
+
 int main(void) {
 
+	measureCPU measure;
+	printf("%lf\n", measure.measure(test_memoryHandler, 1000));
+
+	/*
+	availableProcessors processors = getAvailableProcessors();
+
+	measureCPU measure;
+	measure.start();
 	tset_fileSuite();
+	printf("計測時間(CPU):%lf\n", measure.end());
+	*/
 
 	return 0;
 

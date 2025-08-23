@@ -14,6 +14,12 @@
     <Filter Include="files">
       <UniqueIdentifier>{2d9f6aea-d348-4b1c-b060-59ba755bb211}</UniqueIdentifier>
     </Filter>
+    <Filter Include="environment">
+      <UniqueIdentifier>{36b20b31-321d-4cad-8b40-b9dfb9ad0714}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="debug">
+      <UniqueIdentifier>{a2f030ac-88e9-49c8-9515-8913ed858909}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tstd_definition.h" />
@@ -27,6 +33,12 @@
     <ClInclude Include="files\fileSuite.hpp">
       <Filter>files</Filter>
     </ClInclude>
+    <ClInclude Include="environment\environment.h">
+      <Filter>environment</Filter>
+    </ClInclude>
+    <ClInclude Include="debug\measure.hpp">
+      <Filter>debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\base.c">
@@ -34,6 +46,9 @@
     </ClCompile>
     <ClCompile Include="files\fileSuite.cpp">
       <Filter>files</Filter>
+    </ClCompile>
+    <ClCompile Include="environment\environment.c">
+      <Filter>environment</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

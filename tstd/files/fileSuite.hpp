@@ -63,7 +63,7 @@ public:
 	* @param elemSize	型のサイズ (ex: sizeof(unsigned char))
 	* @param elemCount	配列の長さ
 	*/
-	void DLL_EXPORT write(void* dataP, size_t elemSize, size_t elemCount);
+	void DLL_EXPORT write(const void* dataP, size_t elemSize, size_t elemCount);
 
 	/*
 	* @fn

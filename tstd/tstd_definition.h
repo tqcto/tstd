@@ -13,9 +13,17 @@
 #ifdef _USE_TSTD_DEBUG_MACROS
 
 #if _DEBUG
+
 #define DEBUG_LOG	printf
+#define NEW_CONSOLE	AllocConsole()
+#define DEL_CONSOLE	FreeConsole()
+
 #else
+
 #define DEBUG_LOG
+#define NEW_CONSOLE
+#define DEL_CONSOLE
+
 #endif
 
 #endif

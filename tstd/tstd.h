@@ -8,11 +8,13 @@
 
 #include "memory/memoryHandler.hpp"
 #include "files/fileSuite.hpp"
+#include "debug/measure.hpp"
 
 extern "C" {
 #endif
 
 #include "base/base.h"
+#include "environment/environment.h"
 
 #ifdef __cplusplus
 }
