@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _TSTD_FILE_SUITE_H_
-#define _TSTD_FILE_SUITE_H_
+#ifndef _TSTD_FILE_SUITE_HPP_
+#define _TSTD_FILE_SUITE_HPP_
 
 #include "../tstd_definition.h"
 

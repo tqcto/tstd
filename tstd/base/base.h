@@ -1,5 +1,8 @@
 #include "../tstd_definition.h"
 
+#ifndef _TSTD_BASE_H_
+#define _TSTD_BASE_H_
+
 /**
 * @def
 * @brief			convert2digitŠÖ”‚ÅŠî”•ÏŠ·‚µ‚½”’l‚ÌŒ…”‚ğŒvZ
@@ -37,3 +40,5 @@ DLL_EXPORT unsigned int convert2decimal(unsigned char* digitP, unsigned int str_
 * @param base				•\¦‚µ‚½‚¢Šî”
 **/
 DLL_EXPORT void printd(unsigned int value_in_decimal, unsigned int base);
+
+#endif
