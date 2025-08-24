@@ -38,6 +38,7 @@
     <ClInclude Include="base\base.h" />
     <ClInclude Include="debug\measure.hpp" />
     <ClInclude Include="environment\environment.h" />
+    <ClInclude Include="files\directorySuite.hpp" />
     <ClInclude Include="files\fileSuite.hpp" />
     <ClInclude Include="memory\memoryHandler.hpp" />
     <ClInclude Include="tstd.h" />
@@ -46,6 +47,7 @@
   <ItemGroup>
     <ClCompile Include="base\base.c" />
     <ClCompile Include="environment\environment.c" />
+    <ClCompile Include="files\directorySuite.cpp" />
     <ClCompile Include="files\fileSuite.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

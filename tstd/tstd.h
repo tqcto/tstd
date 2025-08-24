@@ -7,6 +7,7 @@
 #ifdef __cplusplus
 
 #include "memory/memoryHandler.hpp"
+#include "files/directorySuite.hpp"
 #include "files/fileSuite.hpp"
 #include "debug/measure.hpp"
 

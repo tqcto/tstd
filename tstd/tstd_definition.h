@@ -10,6 +10,14 @@
 #endif
 #endif
 
+// if you use this macros then include Windows.h or define MAX_PATH 260
+#ifndef TSTD_MAX_PATH_ANSI
+#define TSTD_MAX_PATH_ANSI	MAX_PATH
+#endif
+#ifndef TSTD_MAX_PATH_UNIC
+#define TSTD_MAX_PATH_UNIC	(MAX_PATH >> 1)
+#endif
+
 #ifdef _USE_TSTD_DEBUG_MACROS
 
 #if _DEBUG

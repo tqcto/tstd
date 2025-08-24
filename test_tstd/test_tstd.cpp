@@ -40,7 +40,7 @@ void test_memoryHandler() {
 
 }
 
-void tset_fileSuite() {
+void test_fileSuite() {
 
 	size_t size = 1 << 8;
 
@@ -57,19 +57,23 @@ void tset_fileSuite() {
 
 }
 
-int main(void) {
+void test_directorySuite() {
 
-	measureCPU measure;
-	printf("%lf\n", measure.measure(test_memoryHandler, 1000));
+	directorySuite dir("..\\tstd\\");
+	printf("%s\n", dir.isExist() ? "true" : "false");
+
+}
+
+int main(void) {
 
 	/*
 	availableProcessors processors = getAvailableProcessors();
-
+	
 	measureCPU measure;
-	measure.start();
-	tset_fileSuite();
-	printf("計測時間(CPU):%lf\n", measure.end());
+	printf("%lf\n", measure.measure(test_memoryHandler, 1000));
 	*/
+
+	test_directorySuite();
 
 	return 0;
 

@@ -39,6 +39,9 @@
     <ClInclude Include="debug\measure.hpp">
       <Filter>debug</Filter>
     </ClInclude>
+    <ClInclude Include="files\directorySuite.hpp">
+      <Filter>files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\base.c">
@@ -49,6 +52,9 @@
     </ClCompile>
     <ClCompile Include="environment\environment.c">
       <Filter>environment</Filter>
+    </ClCompile>
+    <ClCompile Include="files\directorySuite.cpp">
+      <Filter>files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

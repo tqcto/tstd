@@ -72,6 +72,17 @@ public:
 
 	/*
 	* @fn
+	* @brief	メモリが使用中か否か
+	* @return	使用中か否か
+	*/
+	inline bool getIsUsing() const {
+
+		return this->isUsing;
+
+	}
+
+	/*
+	* @fn
 	* @brief	確保したメモリの解放
 	*/
 	inline void release() {
