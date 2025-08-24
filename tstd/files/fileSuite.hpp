@@ -45,7 +45,7 @@ public:
 	* @param filepath	バイナリファイルのファイルパス
 	* @param mode		バイナリファイルの開き方
 	*/
-	void DLL_EXPORT open(const char* filepath, fileSuiteOpeningMode mode);
+	DLL_EXPORT void open(const char* filepath, fileSuiteOpeningMode mode);
 
 	/*
 	* @fn
@@ -54,7 +54,7 @@ public:
 	* @param elemSize	型のサイズ (ex: sizeof(unsigned char))
 	* @param elemCount	配列の長さ
 	*/
-	void DLL_EXPORT read(void* dataP, size_t elemSize, size_t elemCount);
+	DLL_EXPORT void read(void* dataP, size_t elemSize, size_t elemCount);
 
 	/*
 	* @fn
@@ -63,13 +63,13 @@ public:
 	* @param elemSize	型のサイズ (ex: sizeof(unsigned char))
 	* @param elemCount	配列の長さ
 	*/
-	void DLL_EXPORT write(const void* dataP, size_t elemSize, size_t elemCount);
+	DLL_EXPORT void write(const void* dataP, size_t elemSize, size_t elemCount);
 
 	/*
 	* @fn
 	* @brief ファイルを閉じる
 	*/
-	void DLL_EXPORT close();
+	DLL_EXPORT void close();
 
 };
 

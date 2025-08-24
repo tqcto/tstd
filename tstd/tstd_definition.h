@@ -15,8 +15,11 @@
 #if _DEBUG
 
 #define DEBUG_LOG	printf
+
+/// include Windows.h ///
 #define NEW_CONSOLE	AllocConsole()
 #define DEL_CONSOLE	FreeConsole()
+/// include Windows.h ///
 
 #else
 

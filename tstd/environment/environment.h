@@ -20,6 +20,6 @@ typedef struct {
 * @brief	利用可能なCPUプロセッサーを取得
 * @return	CPUプロセッサーリスト
 */
-availableProcessors DLL_EXPORT getAvailableProcessors();
+DLL_EXPORT availableProcessors getAvailableProcessors();
 
 #endif
