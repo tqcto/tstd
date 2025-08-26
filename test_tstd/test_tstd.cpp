@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdalign.h>
 
 #include <Windows.h>
 
@@ -32,7 +33,7 @@ void test_memoryHandler() {
 	memoryHandler<int> handle;
 	int* dataP = handle.allocate();
 
-	DEBUG_LOG("%d\n", *dataP);
+	DEBUG_LOG("%p\n", dataP);
 
 	*dataP = 0;
 
@@ -66,14 +67,8 @@ void test_directorySuite() {
 
 int main(void) {
 
-	/*
-	availableProcessors processors = getAvailableProcessors();
-	
-	measureCPU measure;
-	printf("%lf\n", measure.measure(test_memoryHandler, 1000));
-	*/
 
-	test_directorySuite();
+	test_memoryHandler();
 
 	return 0;
 

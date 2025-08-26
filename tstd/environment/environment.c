@@ -14,3 +14,11 @@ availableProcessors getAvailableProcessors() {
 	return result;
 
 }
+
+size_t getAlignment(availableProcessors processors) {
+
+	if (processors.AVX512F) return 8U;		// 64byte
+	else if (processors.AVX2) return 4U;	// 32byte
+	else return 2U;	// 16byte
+
+}

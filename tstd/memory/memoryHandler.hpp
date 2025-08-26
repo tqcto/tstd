@@ -3,21 +3,29 @@
 #define _TSTD_MEMORY_HANDLER_HPP_
 
 #include <stdlib.h>
+#include <stdalign.h>	// for _aligned_malloc and _aligned_free
+
+#include "../environment/environment.h"
 
 // メモリハンドラ
 template<typename T>class memoryHandler {
 
 private:
 
-	T* data = nullptr;
+	availableProcessors processors;
+	size_t alignment = 2U; // 16 byte
 	bool isUsing = false;
+	bool isUsedAline = false;
 
 public:
 
+	T* data = nullptr;
+	
 	// コンストラクタ
 	memoryHandler() {
 
-
+		this->processors = getAvailableProcessors();
+		this->alignment = getAlignment(this->processors);
 
 	}
 
@@ -61,10 +69,31 @@ public:
 
 	/*
 	* @fn
-	* @brief	確保したメモリのポインタを取得
+	* @brief	テンプレートに指定した型の単一メモリをアライメント考慮で確保
 	* @return	確保したメモリのポインタ
 	*/
-	inline T* getDataP() const {
+	inline T* allocateAligned() {
+
+		this->data = (T*)_aligned_malloc(sizeof(T), this->alignment);
+		this->isUsing = true;
+		this->isUsedAline = true;
+
+		return this->data;
+
+	}
+
+	/*
+	* @fn
+	* @brief				テンプレートに指定した型にarray_lengthで指定した長さのメモリをアライメント考慮で確保
+	* @param array_length	確保する配列の長さ
+	* @return				確保したメモリのポインタ
+	*/
+	inline T* allocateAligned(size_t array_length) {
+
+		//this->data = reinterpret_cast<T*>(malloc(sizeof(T) * array_length));
+		this->data = (T*)_aligned_malloc(sizeof(T) * array_length, this->alignment);
+		this->isUsing = true;
+		this->isUsedAline = true;
 
 		return this->data;
 
@@ -87,8 +116,16 @@ public:
 	*/
 	inline void release() {
 
-		free(this->data);
+		if (this->isUsedAline) {
+			_aligned_free(this->data);
+		}
+		else {
+			free(this->data);
+		}
+		
+		this->data = nullptr;
 		this->isUsing = false;
+		this->isUsedAline = false;
 
 	}
 

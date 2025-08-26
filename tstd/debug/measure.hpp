@@ -66,7 +66,7 @@ public:
 	* @param count	Œv‘ª‰ñ”
 	* @return		•½‹ÏÀsŠÔ
 	*/
-	template<typename Func, typename ... Args> double measure(Func func, Args ... args, int count) {
+	template<typename Func, typename ... Args> double measure(Func func, Args ... args, unsigned int count) {
 
 		double sum = 0.0;
 

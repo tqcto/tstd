@@ -22,4 +22,12 @@ typedef struct {
 */
 DLL_EXPORT availableProcessors getAvailableProcessors();
 
+/*
+* @fn
+* @brief			実行環境に応じたアライメントを取得
+* @param processors	利用可能なCPUプロセッサーリスト
+* @return			アライメント
+*/
+DLL_EXPORT size_t getAlignment(availableProcessors processors);
+
 #endif
