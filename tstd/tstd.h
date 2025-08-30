@@ -14,10 +14,10 @@ extern "C" {
 #ifdef __cplusplus
 }
 
-#include "memory/memoryHandler.hpp"
+#include "debug/measure.hpp"
 #include "files/directorySuite.hpp"
 #include "files/fileSuite.hpp"
-#include "debug/measure.hpp"
+#include "memory/memoryHandler.hpp"
 
 #endif
 

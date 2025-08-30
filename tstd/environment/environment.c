@@ -17,8 +17,8 @@ availableProcessors getAvailableProcessors() {
 
 size_t getAlignment(availableProcessors processors) {
 
-	if (processors.AVX512F) return 8U;		// 64byte
-	else if (processors.AVX2) return 4U;	// 32byte
-	else return 2U;	// 16byte
+	if (processors.AVX512F) return 64;		// 64byte
+	else if (processors.AVX2) return 32;	// 32byte
+	else return 16;	// 16byte
 
 }

@@ -41,6 +41,7 @@
     <ClInclude Include="files\directorySuite.hpp" />
     <ClInclude Include="files\fileSuite.hpp" />
     <ClInclude Include="memory\memoryHandler.hpp" />
+    <ClInclude Include="simd\simdVector.hpp" />
     <ClInclude Include="tstd.h" />
     <ClInclude Include="tstd_definition.h" />
   </ItemGroup>
@@ -49,6 +50,7 @@
     <ClCompile Include="environment\environment.c" />
     <ClCompile Include="files\directorySuite.cpp" />
     <ClCompile Include="files\fileSuite.cpp" />
+    <ClCompile Include="simd\simdVector.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

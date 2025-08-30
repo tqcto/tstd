@@ -20,6 +20,9 @@
     <Filter Include="debug">
       <UniqueIdentifier>{a2f030ac-88e9-49c8-9515-8913ed858909}</UniqueIdentifier>
     </Filter>
+    <Filter Include="simd">
+      <UniqueIdentifier>{5f7340e2-2f56-4b14-889d-5183f5b4a5da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tstd_definition.h" />
@@ -42,6 +45,9 @@
     <ClInclude Include="files\directorySuite.hpp">
       <Filter>files</Filter>
     </ClInclude>
+    <ClInclude Include="simd\simdVector.hpp">
+      <Filter>simd</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\base.c">
@@ -55,6 +61,9 @@
     </ClCompile>
     <ClCompile Include="files\directorySuite.cpp">
       <Filter>files</Filter>
+    </ClCompile>
+    <ClCompile Include="simd\simdVector.cpp">
+      <Filter>simd</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

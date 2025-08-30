@@ -7,7 +7,7 @@
 
 #include <Windows.h>
 
-void test_Printb() {
+void test_printb() {
 
 	/*
 	unsigned int value_in_decimal	= 300;
@@ -62,6 +62,12 @@ void test_directorySuite() {
 
 	directorySuite dir("..\\tstd\\");
 	printf("%s\n", dir.isExist() ? "true" : "false");
+
+}
+
+void test_simdVector() {
+
+
 
 }
 

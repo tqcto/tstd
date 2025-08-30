@@ -10,10 +10,10 @@
 // ƒƒ‚ƒŠƒnƒ“ƒhƒ‰
 template<typename T>class memoryHandler {
 
-private:
+protected:
 
 	availableProcessors processors;
-	size_t alignment = 2U; // 16 byte
+	size_t alignment = 16; // 16 byte
 	bool isUsing = false;
 	bool isUsedAline = false;
 
