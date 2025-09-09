@@ -10,6 +10,8 @@ class windowProcedure {
 public:
 
 	DLL_EXPORT static LRESULT CALLBACK wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+
+	DLL_EXPORT virtual LRESULT handleMessage(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 	DLL_EXPORT virtual int messageLoop(MSG* msgP, HWND hWnd);
 
 };

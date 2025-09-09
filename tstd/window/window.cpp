@@ -23,20 +23,25 @@ int window::setup(
 
 	this->wc.style = style;
 
-	this->wc.lpfnWndProc = procedure->wndProc;
-	this->wndProcClassP = procedure;
-
+	this->wc.lpfnWndProc = windowProcedure::wndProc;
+	
 	this->wc.cbClsExtra = NULL;	// 追加メモリ領域の確保
 	this->wc.cbWndExtra = NULL;	// 追加メモリ領域の確保
 
-	this->wc.hInstance = NULL;	// hInstance
+	this->wc.hInstance = GetModuleHandleA(nullptr);	// hInstance
 	this->wc.hIcon = icon;
 	this->wc.hCursor = cursor;
 	this->wc.hbrBackground = background_color;
 	this->wc.lpszMenuName = NULL;	// メニュー名
 	this->wc.lpszClassName = class_name;	// ex: takt_application
 
-	return RegisterClassA(&wc);
+	if (!RegisterClassA(&wc)) {
+		return -1;
+	}
+
+	this->wndProcClassP = procedure;
+
+	return 0;
 
 }
 
@@ -51,8 +56,8 @@ void window::create(const char* title, int x, int y, int width, int height) noex
 		width, height,
 		NULL,	// parent window hwnd
 		NULL,	// menu
-		NULL,	// hInstance
-		NULL	// lpParam
+		this->wc.hInstance,	// hInstance
+		this->wndProcClassP	// lpParam
 
 	);
 
@@ -61,6 +66,7 @@ void window::create(const char* title, int x, int y, int width, int height) noex
 void window::show() {
 
 	ShowWindow(this->hWnd, SW_SHOWNORMAL);
+	UpdateWindow(this->hWnd);
 	this->wndProcClassP->messageLoop(&this->msg, this->hWnd);
 
 }
@@ -68,6 +74,7 @@ void window::show() {
 void window::show(int cmd) {
 
 	ShowWindow(this->hWnd, cmd);
+	UpdateWindow(this->hWnd);
 	this->wndProcClassP->messageLoop(&this->msg, this->hWnd);
 
 }

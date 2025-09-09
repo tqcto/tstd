@@ -74,15 +74,18 @@ void test_simdVector() {
 class wndProcC : public windowProcedure {
 
 public:
-	static LRESULT CALLBACK wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+
+	LRESULT handleMessage(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) override {
 
 		switch (message) {
 
-		case WM_LBUTTONUP:
+		case WM_PAINT:
+			return 0;
+
+		case WM_LBUTTONDOWN:
 		case WM_DESTROY:
-			MessageBoxA(hWnd, "exit.", "!!", MB_OK);
 			PostQuitMessage(0);
-			break;
+			return 0;
 
 		default:
 			return DefWindowProcA(hWnd, message, wParam, lParam);
@@ -93,35 +96,20 @@ public:
 
 	}
 
-	int messageLoop(MSG* msgP, HWND hWnd) {
-
-		bool ret;
-		while ((ret = GetMessageA(msgP, hWnd, 0, 0)) != 0) {
-
-			if (ret == -1) {
-				return ret;
-			}
-			if (msgP->message == WM_LBUTTONUP) {
-
-				break;
-
-			}
-
-			DispatchMessageA(msgP);
-
-		}
-
-		return (int)msgP->wParam;
-
-	}
-
 };
 void test_window() {
 
 	wndProcC wndProcClass;
 
 	window win;
-	win.setup(NULL, NULL, NULL, NULL, "test", &wndProcClass);
+	win.setup(
+		CS_HREDRAW | CS_VREDRAW,
+		LoadIcon(NULL, IDI_APPLICATION),
+		LoadCursor(NULL, IDC_ARROW),
+		(HBRUSH)(COLOR_WINDOW + 1),
+		"test",
+		&wndProcClass
+	);
 	win.create("test", 100, 100, 500, 500);
 	win.show();
 

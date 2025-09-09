@@ -13,7 +13,7 @@ private:
 
 	WNDCLASSA wc;
 	MSG msg;
-	windowProcedure* wndProcClassP;
+	windowProcedure* wndProcClassP = nullptr;
 
 public:
 
