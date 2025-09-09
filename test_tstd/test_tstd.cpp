@@ -71,10 +71,65 @@ void test_simdVector() {
 
 }
 
+class wndProcC : public windowProcedure {
+
+public:
+	static LRESULT CALLBACK wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+
+		switch (message) {
+
+		case WM_LBUTTONUP:
+		case WM_DESTROY:
+			MessageBoxA(hWnd, "exit.", "!!", MB_OK);
+			PostQuitMessage(0);
+			break;
+
+		default:
+			return DefWindowProcA(hWnd, message, wParam, lParam);
+
+		}
+
+		return 0;
+
+	}
+
+	int messageLoop(MSG* msgP, HWND hWnd) {
+
+		bool ret;
+		while ((ret = GetMessageA(msgP, hWnd, 0, 0)) != 0) {
+
+			if (ret == -1) {
+				return ret;
+			}
+			if (msgP->message == WM_LBUTTONUP) {
+
+				break;
+
+			}
+
+			DispatchMessageA(msgP);
+
+		}
+
+		return (int)msgP->wParam;
+
+	}
+
+};
+void test_window() {
+
+	wndProcC wndProcClass;
+
+	window win;
+	win.setup(NULL, NULL, NULL, NULL, "test", &wndProcClass);
+	win.create("test", 100, 100, 500, 500);
+	win.show();
+
+}
+
 int main(void) {
 
-
-	test_memoryHandler();
+	test_window();
 
 	return 0;
 

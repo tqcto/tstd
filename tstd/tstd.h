@@ -18,6 +18,7 @@ extern "C" {
 #include "files/directorySuite.hpp"
 #include "files/fileSuite.hpp"
 #include "memory/memoryHandler.hpp"
+#include "window/window.hpp"
 
 #endif
 

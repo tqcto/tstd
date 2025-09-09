@@ -20,6 +20,9 @@
     <Filter Include="debug">
       <UniqueIdentifier>{a2f030ac-88e9-49c8-9515-8913ed858909}</UniqueIdentifier>
     </Filter>
+    <Filter Include="window">
+      <UniqueIdentifier>{993b730c-e749-4815-894e-8bbe10c38701}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tstd_definition.h" />
@@ -42,6 +45,12 @@
     <ClInclude Include="files\directorySuite.hpp">
       <Filter>files</Filter>
     </ClInclude>
+    <ClInclude Include="window\window.hpp">
+      <Filter>window</Filter>
+    </ClInclude>
+    <ClInclude Include="window\windowProcedure.hpp">
+      <Filter>window</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\base.c">
@@ -55,6 +64,12 @@
     </ClCompile>
     <ClCompile Include="files\directorySuite.cpp">
       <Filter>files</Filter>
+    </ClCompile>
+    <ClCompile Include="window\window.cpp">
+      <Filter>window</Filter>
+    </ClCompile>
+    <ClCompile Include="window\windowProcedure.cpp">
+      <Filter>window</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

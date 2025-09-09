@@ -43,12 +43,16 @@
     <ClInclude Include="memory\memoryHandler.hpp" />
     <ClInclude Include="tstd.h" />
     <ClInclude Include="tstd_definition.h" />
+    <ClInclude Include="window\window.hpp" />
+    <ClInclude Include="window\windowProcedure.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\base.c" />
     <ClCompile Include="environment\environment.c" />
     <ClCompile Include="files\directorySuite.cpp" />
     <ClCompile Include="files\fileSuite.cpp" />
+    <ClCompile Include="window\window.cpp" />
+    <ClCompile Include="window\windowProcedure.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
