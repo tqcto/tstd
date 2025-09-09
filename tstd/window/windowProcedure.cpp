@@ -1,19 +1,19 @@
 #include "windowProcedure.hpp"
 
-LRESULT CALLBACK windowProcedure::wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+LRESULT CALLBACK wndProcInterface::wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 
-	windowProcedure* thisP = nullptr;
+	wndProcInterface* thisP = nullptr;
 
 	if (message == WM_NCCREATE) {
 
 		CREATESTRUCTA* cs = reinterpret_cast<CREATESTRUCTA*>(lParam);
-		thisP = static_cast<windowProcedure*>(cs->lpCreateParams);
+		thisP = static_cast<wndProcInterface*>(cs->lpCreateParams);
 		SetWindowLongPtrA(hWnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(thisP));
 
 	}
 	else {
 
-		thisP = reinterpret_cast<windowProcedure*>(GetWindowLongPtrA(hWnd, GWLP_USERDATA));
+		thisP = reinterpret_cast<wndProcInterface*>(GetWindowLongPtrA(hWnd, GWLP_USERDATA));
 
 	}
 
@@ -27,7 +27,7 @@ LRESULT CALLBACK windowProcedure::wndProc(HWND hWnd, UINT message, WPARAM wParam
 
 }
 
-LRESULT windowProcedure::handleMessage(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+LRESULT wndProcInterface::handleMessage(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 
 	switch (message) {
 
@@ -44,7 +44,7 @@ LRESULT windowProcedure::handleMessage(HWND hWnd, UINT message, WPARAM wParam, L
 
 }
 
-int windowProcedure::messageLoop(MSG* msgP, HWND hWnd) {
+int wndProcInterface::messageLoop(MSG* msgP, HWND hWnd) {
 
 	while (GetMessageA(msgP, nullptr, 0, 0)) {
 

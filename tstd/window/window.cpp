@@ -18,12 +18,12 @@ int window::setup(
 	HCURSOR cursor,
 	HBRUSH background_color,
 	const char* class_name,
-	windowProcedure* procedure
+	wndProcInterface* procedure
 ) {
 
 	this->wc.style = style;
 
-	this->wc.lpfnWndProc = windowProcedure::wndProc;
+	this->wc.lpfnWndProc = wndProcInterface::wndProc;
 	
 	this->wc.cbClsExtra = NULL;	// ’Ç‰Áƒƒ‚ƒŠ—Ìˆæ‚ÌŠm•Û
 	this->wc.cbWndExtra = NULL;	// ’Ç‰Áƒƒ‚ƒŠ—Ìˆæ‚ÌŠm•Û

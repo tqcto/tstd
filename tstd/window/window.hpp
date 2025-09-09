@@ -13,7 +13,7 @@ private:
 
 	WNDCLASSA wc;
 	MSG msg;
-	windowProcedure* wndProcClassP = nullptr;
+	wndProcInterface* wndProcClassP = nullptr;
 
 public:
 
@@ -28,7 +28,7 @@ public:
 		HCURSOR cursor,
 		HBRUSH background_color,
 		const char* class_name,
-		windowProcedure* procedure
+		wndProcInterface* procedure
 	);
 	DLL_EXPORT void create(const char* title, int x, int y, int width, int height) noexcept;
 

@@ -71,7 +71,7 @@ void test_simdVector() {
 
 }
 
-class wndProcC : public windowProcedure {
+class wndProcC : public wndProcInterface {
 
 public:
 

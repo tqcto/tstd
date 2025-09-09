@@ -5,7 +5,7 @@
 
 #include <Windows.h>
 
-class windowProcedure {
+class wndProcInterface {
 
 public:
 
