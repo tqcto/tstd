@@ -77,13 +77,60 @@ public:
 
 	LRESULT handleMessage(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) override {
 
+		const int width = 500;
+		const int height = 500;
+		const int channels = 4;
+		const size_t pitch = (width * channels + 15) & ~15;
+
+		static unsigned char* render_data = nullptr;
+
+		BITMAPINFO bmi;
+
+		void* bitmapData = nullptr;
+		HDC hdc = nullptr;
+		HBITMAP bitmap;
+		PAINTSTRUCT ps;
+
 		switch (message) {
 
+		case WM_CREATE:
+			render_data = (unsigned char*)_aligned_malloc(sizeof(unsigned char) * pitch * height, 16);
+			memset(render_data, 0xAA, sizeof(unsigned char) * pitch * height);
+			return 0;
+
 		case WM_PAINT:
+
+			DEBUG_LOG("paint\n");
+
+			hdc = BeginPaint(hWnd, &ps);
+
+			memset(&bmi, 0, sizeof(bmi));
+			bmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+			bmi.bmiHeader.biWidth = width;
+			bmi.bmiHeader.biHeight = -height;
+			bmi.bmiHeader.biPlanes = 1;
+			bmi.bmiHeader.biBitCount = 8 * channels;
+			bmi.bmiHeader.biCompression = BI_RGB;
+
+			StretchDIBits(
+				hdc,
+				0, 0, width, height,
+				0, 0, width, height,
+				render_data, &bmi,
+				DIB_RGB_COLORS, SRCCOPY
+			);
+
+			EndPaint(hWnd, &ps);
+
 			return 0;
 
 		case WM_LBUTTONDOWN:
 		case WM_DESTROY:
+
+			if (render_data) {
+				_aligned_free(render_data);
+				render_data = nullptr;
+			}
 			PostQuitMessage(0);
 			return 0;
 
