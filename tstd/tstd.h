@@ -10,6 +10,7 @@ extern "C" {
 
 #include "base/base.h"
 #include "environment/environment.h"
+#include "converter/converter.h"
 
 #ifdef __cplusplus
 }

@@ -23,6 +23,9 @@
     <Filter Include="window">
       <UniqueIdentifier>{993b730c-e749-4815-894e-8bbe10c38701}</UniqueIdentifier>
     </Filter>
+    <Filter Include="converter">
+      <UniqueIdentifier>{1b077528-1b28-445f-8036-986cc4788067}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tstd_definition.h" />
@@ -51,6 +54,9 @@
     <ClInclude Include="window\windowProcedure.hpp">
       <Filter>window</Filter>
     </ClInclude>
+    <ClInclude Include="converter\converter.h">
+      <Filter>converter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\base.c">
@@ -70,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="window\windowProcedure.cpp">
       <Filter>window</Filter>
+    </ClCompile>
+    <ClCompile Include="converter\converter.c">
+      <Filter>converter</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
