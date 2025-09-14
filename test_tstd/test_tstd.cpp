@@ -81,16 +81,58 @@ private:
 
 public:
 
-	LRESULT handleMessage(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) override {
+	LRESULT OnSize(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+
+		DEBUG_LOG("size\n");
 
 		size_t pitch = (width * channels + 15) & ~15;
 
-		BITMAPINFO bmi;
+		if (render_data != nullptr) {
 
-		void* bitmapData = nullptr;
-		HDC hdc = nullptr;
-		HBITMAP bitmap;
+			_aligned_free(render_data);
+			render_data = nullptr;
+
+		}
+
+		render_data = (unsigned char*)_aligned_malloc(sizeof(unsigned char) * pitch * height, 16);
+		memset(render_data, 0, sizeof(unsigned char) * pitch * height);
+
+		return 0;
+
+	}
+
+	LRESULT OnPaint(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+
+		DEBUG_LOG("paint\n");
+		
+		BITMAPINFO bmi;
 		PAINTSTRUCT ps;
+
+		HDC hdc = BeginPaint(hWnd, &ps);
+
+		memset(&bmi, 0, sizeof(bmi));
+		bmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+		bmi.bmiHeader.biWidth = width;
+		bmi.bmiHeader.biHeight = -height;
+		bmi.bmiHeader.biPlanes = 1;
+		bmi.bmiHeader.biBitCount = 8 * channels;
+		bmi.bmiHeader.biCompression = BI_RGB;
+
+		StretchDIBits(
+			hdc,
+			0, 0, width, height,
+			0, 0, width, height,
+			render_data, &bmi,
+			DIB_RGB_COLORS, SRCCOPY
+		);
+
+		EndPaint(hWnd, &ps);
+
+		return 0;
+
+	}
+
+	LRESULT handleMessage(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) override {
 
 		switch (message) {
 
@@ -100,45 +142,11 @@ public:
 
 		case WM_SIZE:
 
-			DEBUG_LOG("size\n");
-
-			if (render_data != nullptr) {
-
-				_aligned_free(render_data);
-				render_data = nullptr;
-
-			}
-			
-			render_data = (unsigned char*)_aligned_malloc(sizeof(unsigned char) * pitch * height, 16);
-			memset(render_data, 0, sizeof(unsigned char) * pitch * height);
-
-			return 0;
+			return this->OnSize(hWnd, message, wParam, lParam);
 
 		case WM_PAINT:
 
-			DEBUG_LOG("paint\n");
-			
-			hdc = BeginPaint(hWnd, &ps);
-
-			memset(&bmi, 0, sizeof(bmi));
-			bmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
-			bmi.bmiHeader.biWidth = width;
-			bmi.bmiHeader.biHeight = -height;
-			bmi.bmiHeader.biPlanes = 1;
-			bmi.bmiHeader.biBitCount = 8 * channels;
-			bmi.bmiHeader.biCompression = BI_RGB;
-
-			StretchDIBits(
-				hdc,
-				0, 0, width, height,
-				0, 0, width, height,
-				render_data, &bmi,
-				DIB_RGB_COLORS, SRCCOPY
-			);
-
-			EndPaint(hWnd, &ps);
-
-			return 0;
+			return this->OnPaint(hWnd, message, wParam, lParam);
 
 		case WM_LBUTTONDOWN:
 		case WM_DESTROY:
