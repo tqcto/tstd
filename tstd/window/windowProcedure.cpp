@@ -25,6 +25,7 @@ LRESULT CALLBACK wndProcInterface::wndProc(HWND hWnd, UINT message, WPARAM wPara
 		case WM_SIZE:
 			thisP->width = LOWORD(lParam);
 			thisP->height = HIWORD(lParam);
+			InvalidateRect(hWnd, NULL, FALSE);
 			break;
 
 		// ダブルバッファリング防止

@@ -112,9 +112,6 @@ public:
 			render_data = (unsigned char*)_aligned_malloc(sizeof(unsigned char) * pitch * height, 16);
 			memset(render_data, 0, sizeof(unsigned char) * pitch * height);
 
-			InvalidateRect(hWnd, NULL, FALSE);
-			//UpdateWindow(hWnd);
-
 			return 0;
 
 		case WM_PAINT:
