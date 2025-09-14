@@ -19,6 +19,20 @@ LRESULT CALLBACK wndProcInterface::wndProc(HWND hWnd, UINT message, WPARAM wPara
 
 	if (thisP) {
 
+		switch (message) {
+
+		case WM_CREATE:
+		case WM_SIZE:
+			thisP->width = LOWORD(lParam);
+			thisP->height = HIWORD(lParam);
+			break;
+
+		// ダブルバッファリング防止
+		case WM_ERASEBKGND:
+			return 0;
+
+		}
+
 		return thisP->handleMessage(hWnd, message, wParam, lParam);
 
 	}

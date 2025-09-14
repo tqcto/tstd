@@ -7,6 +7,12 @@
 
 class wndProcInterface {
 
+protected:
+
+	// window rect
+	int width = 0;
+	int height = 0;
+
 public:
 
 	DLL_EXPORT static LRESULT CALLBACK wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);

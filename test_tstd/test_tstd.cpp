@@ -73,16 +73,17 @@ void test_simdVector() {
 
 class wndProcC : public wndProcInterface {
 
+private:
+
+	unsigned char* render_data = nullptr;
+	const int channels = 4;
+	size_t pitch = 0;
+
 public:
 
 	LRESULT handleMessage(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) override {
 
-		const int width = 500;
-		const int height = 500;
-		const int channels = 4;
-		const size_t pitch = (width * channels + 15) & ~15;
-
-		static unsigned char* render_data = nullptr;
+		size_t pitch = (width * channels + 15) & ~15;
 
 		BITMAPINFO bmi;
 
@@ -94,14 +95,32 @@ public:
 		switch (message) {
 
 		case WM_CREATE:
+			
+			return 0;
+
+		case WM_SIZE:
+
+			DEBUG_LOG("size\n");
+
+			if (render_data != nullptr) {
+
+				_aligned_free(render_data);
+				render_data = nullptr;
+
+			}
+			
 			render_data = (unsigned char*)_aligned_malloc(sizeof(unsigned char) * pitch * height, 16);
-			memset(render_data, 0xAA, sizeof(unsigned char) * pitch * height);
+			memset(render_data, 0, sizeof(unsigned char) * pitch * height);
+
+			InvalidateRect(hWnd, NULL, FALSE);
+			//UpdateWindow(hWnd);
+
 			return 0;
 
 		case WM_PAINT:
 
 			DEBUG_LOG("paint\n");
-
+			
 			hdc = BeginPaint(hWnd, &ps);
 
 			memset(&bmi, 0, sizeof(bmi));
@@ -157,7 +176,7 @@ void test_window() {
 		"test",
 		&wndProcClass
 	);
-	win.create("test", 100, 100, 500, 500);
+	win.create("test", 100, 100, 500, 500, 0x00);
 	win.show();
 
 }

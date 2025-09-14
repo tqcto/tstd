@@ -21,6 +21,8 @@ int window::setup(
 	wndProcInterface* procedure
 ) {
 
+	this->wc.cbSize = sizeof(WNDCLASSEXA);
+
 	this->wc.style = style;
 
 	this->wc.lpfnWndProc = wndProcInterface::wndProc;
@@ -35,7 +37,7 @@ int window::setup(
 	this->wc.lpszMenuName = NULL;	// ƒƒjƒ…[–¼
 	this->wc.lpszClassName = class_name;	// ex: takt_application
 
-	if (!RegisterClassA(&wc)) {
+	if (!RegisterClassExA(&wc)) {
 		return -1;
 	}
 
@@ -45,13 +47,13 @@ int window::setup(
 
 }
 
-void window::create(const char* title, int x, int y, int width, int height) noexcept{
+void window::create(const char* title, int x, int y, int width, int height, unsigned long style) noexcept{
 
 	this->hWnd = CreateWindowA(
 
 		this->wc.lpszClassName,
 		title,
-		WS_OVERLAPPEDWINDOW,	// style
+		WS_OVERLAPPEDWINDOW | style,	// style
 		x, y,
 		width, height,
 		NULL,	// parent window hwnd
