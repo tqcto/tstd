@@ -186,9 +186,21 @@ void test_window() {
 
 }
 
+void test_complex() {
+
+	complex<double> c1(3.0, 4.0);
+	complex<double> c2(1.0, 2.0);
+
+	complex<double> result = 2.0 * c1;
+
+	DEBUG_LOG("Result: (%f, %f)\n", result.real, result.imag);
+
+}
+
 int main(void) {
 
-	test_window();
+	//test_window();
+	test_complex();
 
 	return 0;
 

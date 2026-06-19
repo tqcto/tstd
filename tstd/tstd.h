@@ -21,6 +21,8 @@ extern "C" {
 #include "memory/memoryHandler.hpp"
 #include "window/window.hpp"
 
+#include "math/complex.hpp"
+
 #endif
 
 #endif
