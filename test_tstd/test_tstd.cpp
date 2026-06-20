@@ -7,6 +7,10 @@
 
 #include <Windows.h>
 
+#include <immintrin.h>
+
+#include <thread>
+
 void test_printb() {
 
 	/*
@@ -186,6 +190,34 @@ void test_window() {
 
 }
 
+void t1(double* vector, double scalar) {
+
+	__m256d vec = _mm256_set_pd(4.0, 3.0, 2.0, 1.0);
+	__m256d sca = _mm256_set1_pd(scalar);
+
+	__m256d result = _mm256_mul_pd(vec, sca);
+
+	_mm256_storeu_pd(vector, result);
+
+
+}
+void test_thread() {
+
+	double* v1 = (double*)malloc(sizeof(double) << 2);
+	double* v2 = (double*)malloc(sizeof(double) << 2);
+
+	std::thread thread1(t1, v1, 1.0);
+	std::thread thread2(t1, v2, 2.0);
+
+	thread1.join();
+	thread2.join();
+
+	for (int i = 0; i < 4; i++) {
+		DEBUG_LOG("v1[%d]: %lf, v2[%d]: %lf\n", i, v1[i], i, v2[i]);
+	}
+
+}
+
 void test_complex() {
 
 	complex<double> c1(3.0, 4.0);
@@ -200,7 +232,8 @@ void test_complex() {
 int main(void) {
 
 	//test_window();
-	test_complex();
+	//test_complex();
+	test_thread();
 
 	return 0;
 
