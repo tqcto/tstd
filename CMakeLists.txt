@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.15)
 
 # set peoject
 project(tstd
 	VERSION 1.0.0
 	DESCRIPTION "my standard library for C/C++"
-	LANGUAGES CXX
+	LANGUAGES C CXX
 )
 
 # project version
@@ -24,7 +24,6 @@ set(SOURCES
 	src/environment/environment.c
 	src/files/directorySuite.cpp
 	src/files/fileSuite.cpp
-	src/math/complex.cpp
 	src/window/window.cpp
 	src/window/windowProcedure.cpp
 )
@@ -36,7 +35,7 @@ set(HEADERS
 	include/base/base.h
 	include/converter/converter.h
 	include/debug/measure.hpp
-	include/environment/environment.hpp
+	include/environment/environment.h
 	include/files/directorySuite.hpp
 	include/files/fileSuite.hpp
 	include/math/complex.hpp
@@ -61,11 +60,11 @@ source_group(
 	FILES ${HEADERS}
 )
 
-# make a exe
-add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+# macro definition
+add_compile_definitions(UNICODE _UNICODE)
 
 # make a static lib
-add_library(${PROJECT_NAME}_lib STATIC
+add_library(${PROJECT_NAME}_static STATIC
 	${SOURCES}
 )
 
@@ -74,15 +73,34 @@ add_library(${PROJECT_NAME}_shared SHARED
 	${SOURCES}
 )
 
-add options of library
+# add options of library
 set_target_properties(${PROJECT_NAME}_shared PROPERTIES
 	VERSION ${PROJECT_VERSION}
 	SOVERSION ${PROJECT_VERSION_MAJOR}
+	OUTPUT_NAME ${PROJECT_NAME}
+)
+
+# set include directory
+target_include_directories(${PROJECT_NAME}_static PUBLIC
+	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+	$<INSTALL_INTERFACE:include>
+)
+target_include_directories(${PROJECT_NAME}_shared PUBLIC
+	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+	$<INSTALL_INTERFACE:include>
 )
 
 # install option
-install(TARGETS ${PROJECT_NAME}
+install(TARGETS ${PROJECT_NAME}_static ${PROJECT_NAME}_shared
 	RUNTIME DESTINATION bin
 	LIBRARY DESTINATION lib
 	ARCHIVE DESTINATION lib
 )
+
+# make a test.exe
+add_executable(test
+	test/test_tstd.cpp
+)
+
+# link
+target_link_libraries(test PRIVATE ${PROJECT_NAME}_static)
