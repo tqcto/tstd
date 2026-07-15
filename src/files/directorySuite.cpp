@@ -1,6 +1,6 @@
-#include "directorySuite.hpp"
+#include "../../include/files/directorySuite.hpp"
 extern "C" {
-#include "../converter/converter.h"
+#include "../../include/converter/converter.h"
 }
 
 directorySuite::directorySuite(const char* directory_path) {

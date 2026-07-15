@@ -1,4 +1,4 @@
-#include "windowProcedure.hpp"
+#include "../../include/window/windowProcedure.hpp"
 
 LRESULT CALLBACK wndProcInterface::wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 

@@ -1,5 +1,5 @@
 ﻿#define _USE_TSTD_DEBUG_MACROS // use debug macros for tstd
-#include "tstd.h"
+#include "../include/tstd.h"
 
 #include <stdio.h>
 #include <stdlib.h>

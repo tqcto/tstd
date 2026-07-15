@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdalign.h>	// for _aligned_malloc and _aligned_free
 
-#include "../environment/environment.h"
+#include "../../include/environment/environment.h"
 
 // ƒƒ‚ƒŠƒnƒ“ƒhƒ‰
 template<typename T>class memoryHandler {
