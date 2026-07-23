@@ -9,5 +9,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: lukka/get-cmake@latest
-      - name: Setup anew (or from cache)        
+      - name: build
+        run: cmake -S . -B build - DCMAKE_BUILD_TYPE=Release && cmake --build build -- config Release
+      - name: Setup anew (or from cache)
         run: echo "Running tests ..."
