@@ -12,9 +12,8 @@ jobs:
       # 1. checkout
       -uses: actions/checkout@v4
 
-      -uses: lukka/get-cmake@latest
-
       -name: Confgure CMake
+        uses: lukka/get-cmake@latest
         run: cmake -S . -B build
 
       -name: Build
