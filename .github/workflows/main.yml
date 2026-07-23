@@ -11,6 +11,7 @@ jobs:
       - uses: lukka/get-cmake@latest
       - name: build
         run: cmake -S . -B build
+      - name: build release
         run: cmake --build build --config Release
       - name: Setup anew (or from cache)
         run: echo "Running tests ..."
