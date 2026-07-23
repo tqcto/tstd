@@ -10,16 +10,15 @@ jobs:
     steps:
 
       # 1. checkout
-      -name: Checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
 
       # 2. configure cmake
-      -name: Configure CMake
+      - name: Configure CMake
         uses: lukka/get-cmake@latest
-        run: cmake -S . -B build
 
-      -name: Build
+      - name: Build
         run: cmake --build build --config Release
 
-      -name: Run tests
+      - name: Run tests
         run: echo "Running tests ..."
