@@ -8,10 +8,15 @@ jobs:
     name: Build for windows
     runs-on: windows-latest
     steps:
-      - uses: lukka/get-cmake@latest
-      - name: build
+
+      # 1. checkout
+      -uses: actions/checkout@v4
+
+      -name: Confgure CMake
         run: cmake -S . -B build
-      - name: build release
+
+      -name: Build
         run: cmake --build build --config Release
-      - name: Setup anew (or from cache)
+
+      -name: Run tests
         run: echo "Running tests ..."
