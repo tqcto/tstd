@@ -1,1 +1,12 @@
+name: test
 
+on:
+  push:
+
+jobs:
+  build:
+    name: Build for windows
+    runs-on: windows-latest
+    steps:
+      - uses: lukka/get-cmake@latest
+      - name: Setup anew (or from cache)        
