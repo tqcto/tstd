@@ -10,9 +10,11 @@ jobs:
     steps:
 
       # 1. checkout
-      -uses: actions/checkout@v4
+      -name: Checkout code
+        uses: actions/checkout@v4
 
-      -name: Confgure CMake
+      # 2. configure cmake
+      -name: Configure CMake
         uses: lukka/get-cmake@latest
         run: cmake -S . -B build
 
