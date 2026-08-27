@@ -12,12 +12,12 @@ window::~window() {
 
 }
 
-int window::setup(
+t_int window::setup(
 	unsigned long style,
 	HICON icon,
 	HCURSOR cursor,
 	HBRUSH background_color,
-	const char* class_name,
+	const t_char* class_name,
 	wndProcInterface* procedure
 ) {
 
@@ -27,14 +27,14 @@ int window::setup(
 
 	this->wc.lpfnWndProc = wndProcInterface::wndProc;
 	
-	this->wc.cbClsExtra = NULL;	// ’Ç‰Áƒƒ‚ƒŠ—Ìˆæ‚ÌŠm•Û
-	this->wc.cbWndExtra = NULL;	// ’Ç‰Áƒƒ‚ƒŠ—Ìˆæ‚ÌŠm•Û
+	this->wc.cbClsExtra = NULL;	// ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìˆï¿½ÌŠmï¿½ï¿½
+	this->wc.cbWndExtra = NULL;	// ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìˆï¿½ÌŠmï¿½ï¿½
 
 	this->wc.hInstance = GetModuleHandleA(nullptr);	// hInstance
 	this->wc.hIcon = icon;
 	this->wc.hCursor = cursor;
 	this->wc.hbrBackground = background_color;
-	this->wc.lpszMenuName = NULL;	// ƒƒjƒ…[–¼
+	this->wc.lpszMenuName = NULL;	// ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½ï¿½
 	this->wc.lpszClassName = class_name;	// ex: takt_application
 
 	if (!RegisterClassExA(&wc)) {
@@ -47,7 +47,7 @@ int window::setup(
 
 }
 
-void window::create(const char* title, int x, int y, int width, int height, unsigned long style) noexcept{
+void window::create(const t_char* title, t_int x, t_int y, t_int width, t_int height, unsigned long style) noexcept{
 
 	this->hWnd = CreateWindowA(
 
@@ -73,7 +73,7 @@ void window::show() {
 
 }
 
-void window::show(int cmd) {
+void window::show(t_int cmd) {
 
 	ShowWindow(this->hWnd, cmd);
 	UpdateWindow(this->hWnd);

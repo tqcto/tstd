@@ -28,7 +28,7 @@ LRESULT CALLBACK wndProcInterface::wndProc(HWND hWnd, UINT message, WPARAM wPara
 			InvalidateRect(hWnd, NULL, FALSE);
 			break;
 
-		// ƒ_ƒuƒ‹ƒoƒbƒtƒ@ƒŠƒ“ƒO–hŽ~
+		// ï¿½_ï¿½uï¿½ï¿½ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½hï¿½~
 		case WM_ERASEBKGND:
 			return 0;
 
@@ -59,7 +59,7 @@ LRESULT wndProcInterface::handleMessage(HWND hWnd, UINT message, WPARAM wParam, 
 
 }
 
-int wndProcInterface::messageLoop(MSG* msgP, HWND hWnd) {
+t_int wndProcInterface::messageLoop(MSG* msgP, HWND hWnd) {
 
 	while (GetMessageA(msgP, nullptr, 0, 0)) {
 

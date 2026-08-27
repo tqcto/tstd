@@ -6,7 +6,7 @@
 
 #include <utility>		// std::forward
 
-// CPUŠÔ‚Åˆ—ŠÔ‚ÌŒv‘ª‚ğs‚¤ƒNƒ‰ƒX
+// CPUï¿½ï¿½ï¿½Ô‚Åï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ÌŒvï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½X
 class measureCPU {
 
 private:
@@ -15,19 +15,19 @@ private:
 
 public:
 
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 	measureCPU() {
 
 	}
 
-	// ƒfƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ï¿½fï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 	~measureCPU() {
 
 	}
 
 	/*
 	* @fn
-	* @brief	Œv‘ªŠJn
+	* @brief	ï¿½vï¿½ï¿½ï¿½Jï¿½n
 	*/
 	inline void start() {
 
@@ -37,10 +37,10 @@ public:
 
 	/*
 	* @fn
-	* @brief	Œv‘ªI—¹
-	* @return	Œv‘ª‚µ‚½ŠÔ
+	* @brief	ï¿½vï¿½ï¿½ï¿½Iï¿½ï¿½
+	* @return	ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
-	inline double end() {
+	inline t_double end() {
 
 		this->end_clock = clock();
 		return this->getTime();
@@ -49,28 +49,28 @@ public:
 
 	/*
 	* @fn
-	* @brief	Œv‘ª‚µ‚½ŠÔ‚Ìæ“¾
-	* @return	Œv‘ª‚µ‚½ŠÔ
+	* @brief	ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚Ìæ“¾
+	* @return	ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
-	inline double getTime() const {
+	inline t_double getTime() const {
 
-		return (double)(this->end_clock - this->start_clock) / CLOCKS_PER_SEC;
+		return (t_double)(this->end_clock - this->start_clock) / CLOCKS_PER_SEC;
 
 	}
 
 	/*
 	* @fn
-	* @brief		—^‚¦‚ç‚ê‚½ŠÖ”‚Ì•½‹ÏÀsŠÔ‚ğŒv‘ª
-	* @param func	Œv‘ª‚·‚éŠÖ”
-	* @param args	ŠÖ”‚Ìˆø”ƒŠƒXƒg
-	* @param count	Œv‘ª‰ñ”
-	* @return		•½‹ÏÀsŠÔ
+	* @brief		ï¿½^ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½Öï¿½ï¿½Ì•ï¿½ï¿½Ïï¿½ï¿½sï¿½ï¿½ï¿½Ô‚ï¿½ï¿½vï¿½ï¿½
+	* @param func	ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öï¿½
+	* @param args	ï¿½Öï¿½ï¿½Ìˆï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½g
+	* @param count	ï¿½vï¿½ï¿½ï¿½ï¿½
+	* @return		ï¿½ï¿½ï¿½Ïï¿½ï¿½sï¿½ï¿½ï¿½ï¿½
 	*/
-	template<typename Func, typename ... Args> double measure(Func func, Args ... args, unsigned int count) {
+	template<typename Func, typename ... Args> double measure(Func func, Args ... args, t_uint count) {
 
-		double sum = 0.0;
+		t_double sum = 0.0;
 
-		for (int i = 0; i < count; i++) {
+		for (t_int i = 0; i < count; i++) {
 
 			this->start();
 
@@ -80,13 +80,13 @@ public:
 
 		}
 
-		return sum / (double)(count);
+		return sum / (t_double)(count);
 
 	}
 
 };
 
-// Œ»ÀŠÔ‚Åˆ—ŠÔ‚ÌŒv‘ª‚ğs‚¤ƒNƒ‰ƒX
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚Åï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ÌŒvï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½X
 class measureTime {
 
 private:
@@ -95,19 +95,19 @@ private:
 
 public:
 
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 	measureTime() {
 
 	}
 
-	// ƒfƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ï¿½fï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 	~measureTime() {
 
 	}
 
 	/*
 	* @fn
-	* @brief	Œv‘ªŠJn
+	* @brief	ï¿½vï¿½ï¿½ï¿½Jï¿½n
 	*/
 	inline void start() {
 
@@ -117,10 +117,10 @@ public:
 
 	/*
 	* @fn
-	* @brief	Œv‘ªI—¹
-	* @return	Œv‘ª‚µ‚½ŠÔi•b’PˆÊj
+	* @brief	ï¿½vï¿½ï¿½ï¿½Iï¿½ï¿½
+	* @return	ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôiï¿½bï¿½Pï¿½Êj
 	*/
-	inline double end() {
+	inline t_double end() {
 
 		this->end_time = time(NULL);
 		return this->getTime();
@@ -129,28 +129,28 @@ public:
 
 	/*
 	* @fn
-	* @brief	Œv‘ª‚µ‚½ŠÔ‚Ìæ“¾
-	* @return	Œv‘ª‚µ‚½ŠÔi•b’PˆÊj
+	* @brief	ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚Ìæ“¾
+	* @return	ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôiï¿½bï¿½Pï¿½Êj
 	*/
-	inline double getTime() const {
+	inline t_double getTime() const {
 
-		return (double)(this->end_time - this->start_time);
+		return (t_double)(this->end_time - this->start_time);
 
 	}
 
 	/*
 	* @fn
-	* @brief		—^‚¦‚ç‚ê‚½ŠÖ”‚Ì•½‹ÏÀsŠÔ‚ğŒv‘ª
-	* @param func	Œv‘ª‚·‚éŠÖ”
-	* @param args	ŠÖ”‚Ìˆø”ƒŠƒXƒg
-	* @param count	Œv‘ª‰ñ”
-	* @return		•½‹ÏÀsŠÔ
+	* @brief		ï¿½^ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½Öï¿½ï¿½Ì•ï¿½ï¿½Ïï¿½ï¿½sï¿½ï¿½ï¿½Ô‚ï¿½ï¿½vï¿½ï¿½
+	* @param func	ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öï¿½
+	* @param args	ï¿½Öï¿½ï¿½Ìˆï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½g
+	* @param count	ï¿½vï¿½ï¿½ï¿½ï¿½
+	* @return		ï¿½ï¿½ï¿½Ïï¿½ï¿½sï¿½ï¿½ï¿½ï¿½
 	*/
 	template<typename Func, typename ... Args> double measure(Func func, Args ... args, int count) {
 
-		double sum = 0.0;
+		t_double sum = 0.0;
 
-		for (int i = 0; i < count; i++) {
+		for (t_int i = 0; i < count; i++) {
 
 			this->start();
 
@@ -160,7 +160,7 @@ public:
 
 		}
 
-		return sum / (double)(count);
+		return sum / (t_double)(count);
 
 	}
 

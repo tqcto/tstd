@@ -22,22 +22,22 @@ public:
 	DLL_EXPORT window();
 	DLL_EXPORT ~window();
 
-	DLL_EXPORT int setup(
+	DLL_EXPORT t_int setup(
 		unsigned long style,
 		HICON icon,
 		HCURSOR cursor,
 		HBRUSH background_color,
-		const char* class_name,
+		const t_char* class_name,
 		wndProcInterface* procedure
 	);
 	DLL_EXPORT void create(
-		const char* title,
-		int x, int y, int width, int height,
+		const t_char* title,
+		t_int x, t_int y, t_int width, t_int height,
 		unsigned long style
 	) noexcept;
 
 	DLL_EXPORT void show();
-	DLL_EXPORT void show(int cmd);
+	DLL_EXPORT void show(t_int cmd);
 
 
 };

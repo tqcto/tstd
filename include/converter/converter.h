@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 
-DLL_EXPORT inline size_t char2wchar(char* src, wchar_t* dst);
-DLL_EXPORT inline size_t wchar2char(wchar_t* src, char* dst);
+DLL_EXPORT inline size_t char2wchar(t_char* src, wchar_t* dst);
+DLL_EXPORT inline size_t wchar2char(wchar_t* src, t_char* dst);
 
 #endif

@@ -19,10 +19,12 @@ extern "C" {
 #include "../include/files/directorySuite.hpp"
 #include "../include/files/fileSuite.hpp"
 #include "../include/memory/memoryHandler.hpp"
+
 #include "../include/window/window.hpp"
 
 #include "../include/math/complex.hpp"
 #include "../include/math/vector.hpp"
+#include "../include/math/matrix.hpp"
 
 #endif
 

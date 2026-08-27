@@ -4,14 +4,14 @@
 #include <stdlib.h>
 #include <math.h>
 
-unsigned char* convert2digit(unsigned char* bufferP, unsigned int value, unsigned int base, unsigned int str_size) {
+t_uchar* convert2digit(t_uchar* bufferP, t_uint value, t_uint base, t_uint str_size) {
 
 	bufferP += str_size;
 	*--bufferP = '\0';
 
-	for (int i = 0; i < str_size; i++) {
+	for (t_int i = 0; i < str_size; i++) {
 
-		unsigned char digit = (unsigned char)(value % base);
+		t_uchar digit = (t_uchar)(value % base);
 		*--bufferP = (digit < 10 ? '0' : 'A' - 10) + digit;
 
 		value /= base;
@@ -24,14 +24,14 @@ unsigned char* convert2digit(unsigned char* bufferP, unsigned int value, unsigne
 
 }
 
-unsigned int convert2decimal(unsigned char* digitP, unsigned int str_size, unsigned int base) {
+t_uint convert2decimal(t_uchar* digitP, t_uint str_size, t_uint base) {
 
-	unsigned int result = 0;
+	t_uint result = 0;
 
-	for (int i = 0; i < str_size; i++) {
+	for (t_int i = 0; i < str_size; i++) {
 
-		unsigned char tmp = *(digitP + sizeof(unsigned char) * i);
-		int char2int = (tmp >= 'A' ? 10 - 'A' : -'0') + tmp;
+		t_uchar tmp = *(digitP + sizeof(t_uchar) * i);
+		t_int char2int = (tmp >= 'A' ? 10 - 'A' : -'0') + tmp;
 		result += pow(base, str_size - 1 - i) * char2int;
 
 	}
@@ -40,10 +40,10 @@ unsigned int convert2decimal(unsigned char* digitP, unsigned int str_size, unsig
 
 }
 
-void printd(unsigned int value_in_decimal, unsigned int base) {
+void printd(t_uint value_in_decimal, t_uint base) {
 
-	unsigned char* buffer = (unsigned char*)malloc(sizeof(unsigned char) * (1 << 8));
-	unsigned char* converted = convert2digit(buffer, value_in_decimal, base, 1 << 8);
+	t_uchar* buffer = (t_uchar*)malloc(sizeof(t_uchar) * (1 << 8));
+	t_uchar* converted = convert2digit(buffer, value_in_decimal, base, 1 << 8);
 	if (converted == NULL) {
 
 		printf("printd: couldn't calculate order.\n");

@@ -6,27 +6,27 @@
 
 #include <stdbool.h>	// use bool in C
 
-// —˜—p‰Â”\‚ÈCPUƒvƒƒZƒbƒT[
+// ï¿½ï¿½ï¿½pï¿½Â”\ï¿½ï¿½CPUï¿½vï¿½ï¿½ï¿½Zï¿½bï¿½Tï¿½[
 typedef struct {
 
-	bool SSE4_2;
-	bool AVX2;
-	bool AVX512F;
+	t_bool SSE4_2;
+	t_bool AVX2;
+	t_bool AVX512F;
 
 }availableProcessors;
 
 /*
 * @fn
-* @brief	—˜—p‰Â”\‚ÈCPUƒvƒƒZƒbƒT[‚ğæ“¾
-* @return	CPUƒvƒƒZƒbƒT[ƒŠƒXƒg
+* @brief	ï¿½ï¿½ï¿½pï¿½Â”\ï¿½ï¿½CPUï¿½vï¿½ï¿½ï¿½Zï¿½bï¿½Tï¿½[ï¿½ï¿½ï¿½æ“¾
+* @return	CPUï¿½vï¿½ï¿½ï¿½Zï¿½bï¿½Tï¿½[ï¿½ï¿½ï¿½Xï¿½g
 */
 DLL_EXPORT availableProcessors getAvailableProcessors();
 
 /*
 * @fn
-* @brief			ÀsŠÂ‹«‚É‰‚¶‚½ƒAƒ‰ƒCƒƒ“ƒg‚ğæ“¾
-* @param processors	—˜—p‰Â”\‚ÈCPUƒvƒƒZƒbƒT[ƒŠƒXƒg
-* @return			ƒAƒ‰ƒCƒƒ“ƒg
+* @brief			ï¿½ï¿½ï¿½sï¿½Â‹ï¿½ï¿½É‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½æ“¾
+* @param processors	ï¿½ï¿½ï¿½pï¿½Â”\ï¿½ï¿½CPUï¿½vï¿½ï¿½ï¿½Zï¿½bï¿½Tï¿½[ï¿½ï¿½ï¿½Xï¿½g
+* @return			ï¿½Aï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½g
 */
 DLL_EXPORT size_t getAlignment(availableProcessors processors);
 

@@ -26,16 +26,16 @@ void test_printb() {
 	printf("string:%s, length:%d\n", converted, length_in_convert2digit(buffer, converted, str_size));
 	*/
 
-	unsigned char* digit = (unsigned char*)"AA3F";
-	unsigned int	str_size = 4;
+	t_uchar* digit = (t_uchar*)"AA3F";
+	t_uint	str_size = 4;
 	printf("0x%s -> %d\n", digit, convert2decimal(digit, str_size, 16));
 
 }
 
 void test_memoryHandler() {
 
-	memoryHandler<int> handle;
-	int* dataP = handle.allocate();
+	memoryHandler<t_int> handle;
+	t_int* dataP = handle.allocate();
 
 	DEBUG_LOG("%p\n", dataP);
 
@@ -50,9 +50,9 @@ void test_fileSuite() {
 	size_t size = 1 << 8;
 
 	memoryHandler<unsigned char> memHandle;
-	unsigned char* data = memHandle.allocate(size);
+	t_uchar* data = memHandle.allocate(size);
 
-	for (int i = 0; i < size; i++) {
+	for (t_int i = 0; i < size; i++) {
 		data[i] = i;
 	}
 
@@ -79,8 +79,8 @@ class wndProcC : public wndProcInterface {
 
 private:
 
-	unsigned char* render_data = nullptr;
-	const int channels = 4;
+	t_uchar* render_data = nullptr;
+	const t_int channels = 4;
 	size_t pitch = 0;
 
 public:
@@ -98,8 +98,8 @@ public:
 
 		}
 
-		render_data = (unsigned char*)_aligned_malloc(sizeof(unsigned char) * pitch * height, 16);
-		memset(render_data, 0, sizeof(unsigned char) * pitch * height);
+		render_data = (t_uchar*)_aligned_malloc(sizeof(t_uchar) * pitch * height, 16);
+		memset(render_data, 0, sizeof(t_uchar) * pitch * height);
 
 		return 0;
 
@@ -203,8 +203,8 @@ void t1(double* vector, double scalar) {
 }
 void test_thread() {
 
-	double* v1 = (double*)malloc(sizeof(double) << 2);
-	double* v2 = (double*)malloc(sizeof(double) << 2);
+	t_double* v1 = (t_double*)malloc(sizeof(t_double) << 2);
+	t_double* v2 = (t_double*)malloc(sizeof(t_double) << 2);
 
 	std::thread thread1(t1, v1, 1.0);
 	std::thread thread2(t1, v2, 2.0);
@@ -212,7 +212,7 @@ void test_thread() {
 	thread1.join();
 	thread2.join();
 
-	for (int i = 0; i < 4; i++) {
+	for (t_int i = 0; i < 4; i++) {
 		DEBUG_LOG("v1[%d]: %lf, v2[%d]: %lf\n", i, v1[i], i, v2[i]);
 	}
 
@@ -220,10 +220,10 @@ void test_thread() {
 
 void test_complex() {
 
-	complex<double> c1(3.0, 4.0);
-	complex<double> c2(1.0, 2.0);
+	complex<t_double> c1(3.0, 4.0);
+	complex<t_double> c2(1.0, 2.0);
 
-	complex<double> result = 2.0 * c1;
+	complex<t_double> result = 2.0 * c1;
 
 	DEBUG_LOG("Result: (%f, %f)\n", result.real, result.imag);
 

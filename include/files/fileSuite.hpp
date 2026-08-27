@@ -20,54 +20,54 @@ private:
 
 	// file pointer
 	FILE* fp = nullptr;
-	bool isFileOpened = false;
+	t_bool isFileOpened = false;
 
 	fileSuiteOpeningMode opening_mode = INIT;
 
 public:
 
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 	DLL_EXPORT fileSuite();
 	/*
 	* @fn
-	* @brief			ƒRƒ“ƒXƒgƒ‰ƒNƒ^EƒoƒCƒiƒŠƒtƒ@ƒCƒ‹‚ğŠJ‚­
-	* @param filepath	ƒoƒCƒiƒŠƒtƒ@ƒCƒ‹‚Ìƒtƒ@ƒCƒ‹ƒpƒX
-	* @param mode		ƒoƒCƒiƒŠƒtƒ@ƒCƒ‹‚ÌŠJ‚«•û
+	* @brief			ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ï¿½Eï¿½oï¿½Cï¿½iï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½
+	* @param filepath	ï¿½oï¿½Cï¿½iï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìƒtï¿½@ï¿½Cï¿½ï¿½ï¿½pï¿½X
+	* @param mode		ï¿½oï¿½Cï¿½iï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ÌŠJï¿½ï¿½ï¿½ï¿½
 	*/
-	DLL_EXPORT fileSuite(const char* filepath, fileSuiteOpeningMode mode);
+	DLL_EXPORT fileSuite(const t_char* filepath, fileSuiteOpeningMode mode);
 
-	// ƒfƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ï¿½fï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 	DLL_EXPORT ~fileSuite();
 
 	/*
 	* @fn
-	* @brief			ƒoƒCƒiƒŠƒtƒ@ƒCƒ‹‚ğŠJ‚­
-	* @param filepath	ƒoƒCƒiƒŠƒtƒ@ƒCƒ‹‚Ìƒtƒ@ƒCƒ‹ƒpƒX
-	* @param mode		ƒoƒCƒiƒŠƒtƒ@ƒCƒ‹‚ÌŠJ‚«•û
+	* @brief			ï¿½oï¿½Cï¿½iï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½
+	* @param filepath	ï¿½oï¿½Cï¿½iï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìƒtï¿½@ï¿½Cï¿½ï¿½ï¿½pï¿½X
+	* @param mode		ï¿½oï¿½Cï¿½iï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ÌŠJï¿½ï¿½ï¿½ï¿½
 	*/
-	DLL_EXPORT void open(const char* filepath, fileSuiteOpeningMode mode);
+	DLL_EXPORT void open(const t_char* filepath, fileSuiteOpeningMode mode);
 
 	/*
 	* @fn
-	* @brief			ƒoƒCƒiƒŠƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^‚ğ“Ç‚İ‚Ş
-	* @param dataP		“Ç‚ñ‚¾ƒf[ƒ^‚ğŠi”[‚·‚éƒƒ‚ƒŠ‚Ìƒ|ƒCƒ“ƒ^
-	* @param elemSize	Œ^‚ÌƒTƒCƒY (ex: sizeof(unsigned char))
-	* @param elemCount	”z—ñ‚Ì’·‚³
+	* @brief			ï¿½oï¿½Cï¿½iï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ï¿½Ç‚İï¿½ï¿½ï¿½
+	* @param dataP		ï¿½Ç‚ñ‚¾ƒfï¿½[ï¿½^ï¿½ï¿½ï¿½iï¿½[ï¿½ï¿½ï¿½éƒï¿½ï¿½ï¿½ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½^
+	* @param elemSize	ï¿½^ï¿½ÌƒTï¿½Cï¿½Y (ex: sizeof(unsigned char))
+	* @param elemCount	ï¿½zï¿½ï¿½Ì’ï¿½ï¿½ï¿½
 	*/
 	DLL_EXPORT void read(void* dataP, size_t elemSize, size_t elemCount);
 
 	/*
 	* @fn
-	* @brief			ƒoƒCƒiƒŠƒtƒ@ƒCƒ‹‚Éƒf[ƒ^‚ğ‘‚«‚Ş
-	* @param dataP		‘‚«‚Şƒf[ƒ^‚Ìƒƒ‚ƒŠ‚Ìƒ|ƒCƒ“ƒ^
-	* @param elemSize	Œ^‚ÌƒTƒCƒY (ex: sizeof(unsigned char))
-	* @param elemCount	”z—ñ‚Ì’·‚³
+	* @brief			ï¿½oï¿½Cï¿½iï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Éƒfï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param dataP		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Şƒfï¿½[ï¿½^ï¿½Ìƒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½^
+	* @param elemSize	ï¿½^ï¿½ÌƒTï¿½Cï¿½Y (ex: sizeof(unsigned char))
+	* @param elemCount	ï¿½zï¿½ï¿½Ì’ï¿½ï¿½ï¿½
 	*/
 	DLL_EXPORT void write(const void* dataP, size_t elemSize, size_t elemCount);
 
 	/*
 	* @fn
-	* @brief ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
+	* @brief ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½
 	*/
 	DLL_EXPORT void close();
 

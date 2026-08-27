@@ -3,12 +3,12 @@ extern "C" {
 #include "../../include/converter/converter.h"
 }
 
-directorySuite::directorySuite(const char* directory_path) {
+directorySuite::directorySuite(const t_char* directory_path) {
 
-	char2wchar((char*)directory_path, this->path);
+	char2wchar((t_char*)directory_path, this->path);
 
 }
-directorySuite::directorySuite(char* directory_path) {
+directorySuite::directorySuite(t_char* directory_path) {
 
 	char2wchar(directory_path, this->path);
 

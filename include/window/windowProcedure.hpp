@@ -10,15 +10,15 @@ class wndProcInterface {
 protected:
 
 	// window rect
-	int width = 0;
-	int height = 0;
+	t_int width = 0;
+	t_int height = 0;
 
 public:
 
 	DLL_EXPORT static LRESULT CALLBACK wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 	DLL_EXPORT virtual LRESULT handleMessage(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-	DLL_EXPORT virtual int messageLoop(MSG* msgP, HWND hWnd);
+	DLL_EXPORT virtual t_int messageLoop(MSG* msgP, HWND hWnd);
 
 };
 

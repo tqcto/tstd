@@ -8,7 +8,7 @@ fileSuite::fileSuite() {
 
 }
 
-fileSuite::fileSuite(const char* filepath, fileSuiteOpeningMode mode) {
+fileSuite::fileSuite(const t_char* filepath, fileSuiteOpeningMode mode) {
 
 	this->open(filepath, mode);
 
@@ -22,17 +22,17 @@ fileSuite::~fileSuite() {
 
 }
 
-void fileSuite::open(const char* filepath, fileSuiteOpeningMode mode) {
+void fileSuite::open(const t_char* filepath, fileSuiteOpeningMode mode) {
 
 	if (mode == fileSuiteOpeningMode::INIT) {
 		return;
 	}
 
 	// string for fopen_s
-	const char* open_mode_str = mode == fileSuiteOpeningMode::READ ? "rb" : "wb";
+	const t_char* open_mode_str = mode == fileSuiteOpeningMode::READ ? "rb" : "wb";
 
 	// open file
-	int err = fopen_s(&this->fp, filepath, open_mode_str);
+	t_int err = fopen_s(&this->fp, filepath, open_mode_str);
 	if (err != 0) {
 		return;
 	}

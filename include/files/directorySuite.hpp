@@ -22,22 +22,22 @@ private:
 
 	wchar_t path[TSTD_MAX_PATH_UNIC];
 
-	inline bool _isExist(const char* directory_path) const {
+	inline t_bool _isExist(const t_char* directory_path) const {
 
 		return PathFileExistsA(directory_path);
 
 	}
-	inline bool _isExist(char* directory_path) const {
+	inline t_bool _isExist(t_char* directory_path) const {
 
 		return PathFileExistsA(directory_path);
 
 	}
-	inline bool _isExist(const wchar_t* directory_path) const {
+	inline t_bool _isExist(const wchar_t* directory_path) const {
 
 		return PathFileExists(directory_path);
 
 	}
-	inline bool _isExist(wchar_t* directory_path) const {
+	inline t_bool _isExist(wchar_t* directory_path) const {
 
 		return PathFileExists(directory_path);
 
@@ -47,38 +47,38 @@ public:
 
 	/*
 	* @fn
-	* @brief				ƒfƒBƒŒƒNƒgƒŠ‚ğŠJ‚­
-	* @param directory_path	ŠJ‚­ƒfƒBƒŒƒNƒgƒŠ
+	* @brief				ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½
+	* @param directory_path	ï¿½Jï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½
 	*/
-	DLL_EXPORT directorySuite(const char* directory_path);
+	DLL_EXPORT directorySuite(const t_char* directory_path);
 	/*
 	* @fn
-	* @brief				ƒfƒBƒŒƒNƒgƒŠ‚ğŠJ‚­
-	* @param directory_path	ŠJ‚­ƒfƒBƒŒƒNƒgƒŠ
+	* @brief				ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½
+	* @param directory_path	ï¿½Jï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½
 	*/
-	DLL_EXPORT directorySuite(char* directory_path);
+	DLL_EXPORT directorySuite(t_char* directory_path);
 	/*
 	* @fn
-	* @brief				ƒfƒBƒŒƒNƒgƒŠ‚ğŠJ‚­
-	* @param directory_path	ŠJ‚­ƒfƒBƒŒƒNƒgƒŠ
+	* @brief				ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½
+	* @param directory_path	ï¿½Jï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½
 	*/
 	DLL_EXPORT directorySuite(const wchar_t* directory_path);
 	/*
 	* @fn
-	* @brief				ƒfƒBƒŒƒNƒgƒŠ‚ğŠJ‚­
-	* @param directory_path	ŠJ‚­ƒfƒBƒŒƒNƒgƒŠ
+	* @brief				ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½
+	* @param directory_path	ï¿½Jï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½
 	*/
 	DLL_EXPORT directorySuite(wchar_t* directory_path);
 
-	// ƒfƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ï¿½fï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 	DLL_EXPORT ~directorySuite();
 
 	/*
 	* @fn
-	* @brief	ŠJ‚¢‚½ƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚·‚é‚©Šm”F
-	* @return	ƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚·‚é‚©”Û‚©
+	* @brief	ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½é‚©ï¿½mï¿½F
+	* @return	ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½é‚©ï¿½Û‚ï¿½
 	*/
-	inline bool isExist() const {
+	inline t_bool isExist() const {
 
 		return this->_isExist(this->path);
 

@@ -63,6 +63,14 @@ source_group(
 # macro definition
 add_compile_definitions(UNICODE _UNICODE)
 
+# MSVC
+if(MSVC)
+    # UTF-8
+    add_compile_options(/utf-8)
+
+    add_compile_definitions(_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING)
+endif()
+
 # make a static lib
 add_library(${PROJECT_NAME}_static STATIC
 	${SOURCES}
@@ -98,9 +106,9 @@ install(TARGETS ${PROJECT_NAME}_static ${PROJECT_NAME}_shared
 )
 
 # make a test.exe
-add_executable(test
-	test/test_tstd.cpp
-)
+#add_executable(test
+#	test/test_tstd.cpp
+#)
 
 # link
-target_link_libraries(test PRIVATE ${PROJECT_NAME}_static)
+#target_link_libraries(test PRIVATE ${PROJECT_NAME}_static)

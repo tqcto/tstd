@@ -5,40 +5,40 @@
 
 /**
 * @def
-* @brief			convert2digitŠÖ”‚ÅŠî”•ÏŠ·‚µ‚½”’l‚ÌŒ…”‚ğŒvZ
-* @param bufferP	convert2digit‚É“n‚µ‚½‘æ1ˆø”
-* @param convertedP	convert2digit‚Ì–ß‚è’l
-* @param str_size	convert2digit‚É“n‚µ‚½‘æ4ˆø”
+* @brief			convert2digitï¿½Öï¿½ï¿½ÅŠî”ï¿½ÏŠï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ÌŒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Z
+* @param bufferP	convert2digitï¿½É“nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½
+* @param convertedP	convert2digitï¿½Ì–ß‚ï¿½l
+* @param str_size	convert2digitï¿½É“nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½
 **/
 #define length_in_convert2digit(bufferP, convertedP, str_size)	str_size - 1 - ( convertedP - bufferP )
 
 /**
 	* @fn
-	* @brief			10i”‚ğpi”‚ÉŠî”•ÏŠ·
-	* @param bufferP	Šî”•ÏŠ·Œã‚ÌŠeˆÊ‚Ì’l‚ğŠi”[‚·‚éƒƒ‚ƒŠ‚Ìƒ|ƒCƒ“ƒ^
-	* @param value		Šî”•ÏŠ·‚µ‚½‚¢10i”
-	* @param base		•ÏŠ·æ‚ÌŠî”
-	* @param str_size	Œ…‚ÌãŒÀ
-	* @return			Šî”•ÏŠ·Œã‚Ì•¶š—ñƒ|ƒCƒ“ƒ^istr_size‚Ì”ÍˆÍ‚ÅŒvZ‚Å‚«‚È‚©‚Á‚½ê‡‚Í-1‚ğ•Ô‚·j
+	* @brief			10ï¿½iï¿½ï¿½ï¿½ï¿½pï¿½iï¿½ï¿½ï¿½ÉŠî”ï¿½ÏŠï¿½
+	* @param bufferP	ï¿½î”ï¿½ÏŠï¿½ï¿½ï¿½ÌŠeï¿½Ê‚Ì’lï¿½ï¿½ï¿½iï¿½[ï¿½ï¿½ï¿½éƒï¿½ï¿½ï¿½ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½^
+	* @param value		ï¿½î”ï¿½ÏŠï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½10ï¿½iï¿½ï¿½
+	* @param base		ï¿½ÏŠï¿½ï¿½ï¿½ÌŠî”
+	* @param str_size	ï¿½ï¿½ï¿½Ìï¿½ï¿½
+	* @return			ï¿½î”ï¿½ÏŠï¿½ï¿½ï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½Cï¿½ï¿½ï¿½^ï¿½istr_sizeï¿½Ì”ÍˆÍ‚ÅŒvï¿½Zï¿½Å‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ï¿½-1ï¿½ï¿½Ô‚ï¿½ï¿½j
 	**/
-DLL_EXPORT unsigned char* convert2digit(unsigned char* bufferP, unsigned int value, unsigned int base, unsigned int str_size);
+DLL_EXPORT t_uchar* convert2digit(t_uchar* bufferP, t_uint value, t_uint base, t_uint str_size);
 
 /**
 * @fn
-* @brief			pi”‚ğ10i”‚ÉŠî”•ÏŠ·
-* @param digitP		pi”‚Ì•¶š—ñ‚Ìæ“ªƒAƒhƒŒƒX
-* @param str_size	pi”‚ÌŒ…”
-* @param base		•ÏŠ·‘O‚ÌŠî”
-* @return			•ÏŠ·Œã‚Ì10i”
+* @brief			pï¿½iï¿½ï¿½ï¿½ï¿½10ï¿½iï¿½ï¿½ï¿½ÉŠî”ï¿½ÏŠï¿½
+* @param digitP		pï¿½iï¿½ï¿½ï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½Ìæ“ªï¿½Aï¿½hï¿½ï¿½ï¿½X
+* @param str_size	pï¿½iï¿½ï¿½ï¿½ÌŒï¿½ï¿½ï¿½
+* @param base		ï¿½ÏŠï¿½ï¿½Oï¿½ÌŠî”
+* @return			ï¿½ÏŠï¿½ï¿½ï¿½ï¿½10ï¿½iï¿½ï¿½
 **/
-DLL_EXPORT unsigned int convert2decimal(unsigned char* digitP, unsigned int str_size, unsigned int base);
+DLL_EXPORT t_uint convert2decimal(t_uchar* digitP, t_uint str_size, t_uint base);
 
 /**
 * @fn
-* @brief					10i”‚ğpi–@•\‹L‚ÅƒRƒ“ƒ\[ƒ‹ã‚É•\¦
-* @param value_in_decimal	•\¦‚µ‚½‚¢10i”
-* @param base				•\¦‚µ‚½‚¢Šî”
+* @brief					10ï¿½iï¿½ï¿½ï¿½ï¿½pï¿½iï¿½@ï¿½\ï¿½Lï¿½ÅƒRï¿½ï¿½ï¿½\ï¿½[ï¿½ï¿½ï¿½ï¿½É•\ï¿½ï¿½
+* @param value_in_decimal	ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½10ï¿½iï¿½ï¿½
+* @param base				ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î”
 **/
-DLL_EXPORT void printd(unsigned int value_in_decimal, unsigned int base);
+DLL_EXPORT void printd(t_uint value_in_decimal, t_uint base);
 
 #endif

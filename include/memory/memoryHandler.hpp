@@ -7,21 +7,21 @@
 
 #include "../../include/environment/environment.h"
 
-// ƒƒ‚ƒŠƒnƒ“ƒhƒ‰
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½nï¿½ï¿½ï¿½hï¿½ï¿½
 template<typename T>class memoryHandler {
 
 protected:
 
 	availableProcessors processors;
 	size_t alignment = 16; // 16 byte
-	bool isUsing = false;
-	bool isUsedAline = false;
+	t_bool isUsing = false;
+	t_bool isUsedAline = false;
 
 public:
 
 	T* data = nullptr;
 	
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 	memoryHandler() {
 
 		this->processors = getAvailableProcessors();
@@ -29,7 +29,7 @@ public:
 
 	}
 
-	// ƒfƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ï¿½fï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
 	~memoryHandler() {
 
 		if (this->isUsing) {
@@ -40,8 +40,8 @@ public:
 
 	/*
 	* @fn
-	* @brief	ƒeƒ“ƒvƒŒ[ƒg‚Éw’è‚µ‚½Œ^‚Ì’Pˆêƒƒ‚ƒŠ‚ğŠm•Û
-	* @return	Šm•Û‚µ‚½ƒƒ‚ƒŠ‚Ìƒ|ƒCƒ“ƒ^
+	* @brief	ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½Éwï¿½è‚µï¿½ï¿½ï¿½^ï¿½Ì’Pï¿½êƒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½ï¿½
+	* @return	ï¿½mï¿½Û‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½^
 	*/
 	inline T* allocate() {
 
@@ -54,9 +54,9 @@ public:
 
 	/*
 	* @fn
-	* @brief				ƒeƒ“ƒvƒŒ[ƒg‚Éw’è‚µ‚½Œ^‚Éarray_length‚Åw’è‚µ‚½’·‚³‚Ìƒƒ‚ƒŠ‚ğŠm•Û
-	* @param array_length	Šm•Û‚·‚é”z—ñ‚Ì’·‚³
-	* @return				Šm•Û‚µ‚½ƒƒ‚ƒŠ‚Ìƒ|ƒCƒ“ƒ^
+	* @brief				ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½Éwï¿½è‚µï¿½ï¿½ï¿½^ï¿½ï¿½array_lengthï¿½Åwï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½ï¿½
+	* @param array_length	ï¿½mï¿½Û‚ï¿½ï¿½ï¿½zï¿½ï¿½Ì’ï¿½ï¿½ï¿½
+	* @return				ï¿½mï¿½Û‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½^
 	*/
 	inline T* allocate(size_t array_length) {
 
@@ -69,8 +69,8 @@ public:
 
 	/*
 	* @fn
-	* @brief	ƒeƒ“ƒvƒŒ[ƒg‚Éw’è‚µ‚½Œ^‚Ì’Pˆêƒƒ‚ƒŠ‚ğƒAƒ‰ƒCƒƒ“ƒgl—¶‚ÅŠm•Û
-	* @return	Šm•Û‚µ‚½ƒƒ‚ƒŠ‚Ìƒ|ƒCƒ“ƒ^
+	* @brief	ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½Éwï¿½è‚µï¿½ï¿½ï¿½^ï¿½Ì’Pï¿½êƒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½gï¿½lï¿½ï¿½ï¿½ÅŠmï¿½ï¿½
+	* @return	ï¿½mï¿½Û‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½^
 	*/
 	inline T* allocateAligned() {
 
@@ -84,9 +84,9 @@ public:
 
 	/*
 	* @fn
-	* @brief				ƒeƒ“ƒvƒŒ[ƒg‚Éw’è‚µ‚½Œ^‚Éarray_length‚Åw’è‚µ‚½’·‚³‚Ìƒƒ‚ƒŠ‚ğƒAƒ‰ƒCƒƒ“ƒgl—¶‚ÅŠm•Û
-	* @param array_length	Šm•Û‚·‚é”z—ñ‚Ì’·‚³
-	* @return				Šm•Û‚µ‚½ƒƒ‚ƒŠ‚Ìƒ|ƒCƒ“ƒ^
+	* @brief				ï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½Éwï¿½è‚µï¿½ï¿½ï¿½^ï¿½ï¿½array_lengthï¿½Åwï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½gï¿½lï¿½ï¿½ï¿½ÅŠmï¿½ï¿½
+	* @param array_length	ï¿½mï¿½Û‚ï¿½ï¿½ï¿½zï¿½ï¿½Ì’ï¿½ï¿½ï¿½
+	* @return				ï¿½mï¿½Û‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½^
 	*/
 	inline T* allocateAligned(size_t array_length) {
 
@@ -101,10 +101,10 @@ public:
 
 	/*
 	* @fn
-	* @brief	ƒƒ‚ƒŠ‚ªg—p’†‚©”Û‚©
-	* @return	g—p’†‚©”Û‚©
+	* @brief	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½ï¿½ï¿½Û‚ï¿½
+	* @return	ï¿½gï¿½pï¿½ï¿½ï¿½ï¿½ï¿½Û‚ï¿½
 	*/
-	inline bool getIsUsing() const {
+	inline t_bool getIsUsing() const {
 
 		return this->isUsing;
 
@@ -112,7 +112,7 @@ public:
 
 	/*
 	* @fn
-	* @brief	Šm•Û‚µ‚½ƒƒ‚ƒŠ‚Ì‰ğ•ú
+	* @brief	ï¿½mï¿½Û‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‰ï¿½ï¿½
 	*/
 	inline void release() {
 
